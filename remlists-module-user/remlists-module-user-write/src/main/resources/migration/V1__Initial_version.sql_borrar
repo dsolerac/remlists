@@ -1,0 +1,20 @@
+-- sudo -u postgres createuser genomapp -ldRSP
+-- sudo -u genomapp createdb genomappDB
+
+
+CREATE TABLE users
+(
+    id        serial PRIMARY KEY,
+    uuid      UUID UNIQUE         NOT NULL,
+    shortname VARCHAR(20) UNIQUE  NOT NULL,
+    email     VARCHAR(355) UNIQUE NOT NULL
+--                       created_at timestamp(6) with time zone not null,
+--                       updated_at timestamp(6) with time zone not null,
+--                       email_verified boolean not null,
+--                       last_login timestamp(6) with time zone not null
+);
+
+
+create unique index users_email_uindex on users (email);
+
+create unique index users_shortname_uindex on users (shortname);

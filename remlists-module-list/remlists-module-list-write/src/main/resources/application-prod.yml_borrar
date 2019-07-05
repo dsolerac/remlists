@@ -1,0 +1,22 @@
+#The following properties should be overwritten in an external applicationdev.yml file, even so all of them have a default values
+
+remlists:
+  list:
+    config:
+      jdbc:
+        password: ENC(qmR8QcKvGJ41BnjO6MLNTYrlpQjVm4V4)
+        username: ENC(qmR8QcKvGJ41BnjO6MLNTYrlpQjVm4V4)
+        port: 5432
+        host: 172.17.0.1
+        database: remlists-list-DB
+
+        hikari:
+          connectiontimeout: 20000
+          idletimeout: 300000
+          maxlifetime: 600000
+          maximumpoolsize: 25
+          minimumidle: 5
+
+      kafka:
+        bootstrap-servers: 192.168.1.135:9092,192.168.1.135:9093,192.168.1.136:9092
+        group-id: remlists-list-write

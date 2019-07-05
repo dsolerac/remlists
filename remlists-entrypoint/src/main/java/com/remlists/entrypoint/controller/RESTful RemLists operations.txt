@@ -1,0 +1,51 @@
+#RESTful Web Services
+
+· List service:
+    - Recuperar todas las listas -- GET /lists
+    - Crear una lista para un usuario -- POST /users/{id}/lists --> /users/dsolerac/lists
+                                              /users/{uuid}/lists --> /users/dbaaa7f9-8c54-40a8-8428-df2f4c59659e/lists
+    - Recuperar todos los detalles de una lista -- GET /users/{id}/lists/{list_id} --> /users/dsolerac/lists/2d81bfd8-df87-4920-8d82-09620e99845b
+                                                       /users/{uuid}/lists/{list_id} --> /users/dbaaa7f9-8c54-40a8-8428-df2f4c59659e/lists/2d81bfd8-df87-4920-8d82-09620e99845b
+
+
+· User service:
+    - Crear un usuario -- POST /users
+    - Recuprar un usuario concreto -- GET /users/{id} --> /users/dsolerac
+                                          /users/{uuid} --> /users/dbaaa7f9-8c54-40a8-8428-df2f4c59659e
+    - Borrar un usuario concreto -- DELETE /users/{id} --> /users/dsolerac
+                                           /users/{uuid} --> /users/dbaaa7f9-8c54-40a8-8428-df2f4c59659e
+    - Recuperar todos las listas de un usuario -- GET /users/{id}/lists --> /users/dsolerac/lists
+                                                      /users/{uuid}/lists --> /users/dbaaa7f9-8c54-40a8-8428-df2f4c59659e/lists
+
+
+
+#Casos de uso:
+
+· Crear usuarios
+· Que los usuarios puedan crear sus listas, de cualquier temática:
+    - Checklist (conjunto de items) de cosas a comprar sobre cualquier temática o pasos a realizar hasta completar una tarea:
+        + cosas a no olvidar frente a un viaje
+        + tareas para hacer al día, etc.
+        + receta de cocina.
+        + tarea de bricolaje.
+        + tarea de manualidades.
+· Que las listas tengan un número ilimitado de items
+· Que las listas puedan ser categorizadas, para luego poder hacer sugerencias con ellas (lista de viaje, lista de una receta, lista de una actividad de manualidades, etc.)
+· Que se pueda ordenar los items de una lista, pudiendo determinar una secuencia de pasos.
+· Que las listas puedan ser públicas o privadas
+    - Públicas: puedan aceptar sugerencias de otros usuarios que les sean útiles.
+    - Privadas: solo las ve el que las hace y con quien las comparta.
+· Que las listas privadas se puedan compartir con otros usuarios. Las listas podrán ser compartidas en modo:
+    - Lectura, cualquier usuario podrá hacer check en los items que haya completado.
+    - Escritura, cualquier usuario podrá:
+        + añadir, borrar o modificar cualquiera de los items del checklist.
+        + hacer check en los items que haya completado.
+
+
+#Use cases, nice to do
+
+· Que los items puedan ser asignados a usuarios, para que se encarguen de ello.
+· Sugerencias o recordatorios a los usuarios:
+    - Sobre listas privadas, los artículos aparezcan en una lista puedan ser después sugeridos como que se han comprado/utilizado
+     con anterioridad y así hacer sugerencias o recordatorios.
+    - Sobre listas públicas, las listas pueden ser sugeridas en base a algún algoritmo o de forma aleatoria.

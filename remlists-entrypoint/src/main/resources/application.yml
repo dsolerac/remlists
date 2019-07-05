@@ -1,0 +1,27 @@
+saludo:
+  uno: hola
+
+
+
+
+management:
+  endpoints:
+    web:
+#      base-path: /mng/actuator
+      exposure:
+        include: "*"
+
+
+info:
+  app:
+    name: Remlists application
+    java:
+      version: 11
+    type: Modular Spring Boot application
+
+
+spring:
+  security:
+    user:
+      name: dsolerac
+      password: $2a$10$It8elLDD/BPYV5nhkDP3YO./K.Gy6SktAeSitHFO3AxmwbP20AjoS

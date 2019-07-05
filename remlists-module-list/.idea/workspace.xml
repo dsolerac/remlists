@@ -1,0 +1,1446 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="01b105c2-74d1-48ef-9f43-059d45c4adca" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/remlists-module-list-write/src/main/java/com/remlists/list/write/infrastructure/mapper/RemListMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/remlists-module-list-write/src/test/java/com/remlists/list/write/infrastructure/mapper/RemListMapperTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../remlists-module-shared/src/main/java/com/remlists/shared/domain/entities/Entity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../remlists-module-shared/src/main/java/com/remlists/shared/infrastructure/mapper/MapperBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../remlists-module-shared/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../remlists-module-shared/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../remlists-module-shared/src/main/java/com/remlists/shared/SharedRemlistsApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../remlists-module-shared/src/main/java/com/remlists/shared/SharedRemlistsApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../remlists-module-shared/src/main/java/com/remlists/shared/domain/repository/CrudRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../remlists-module-shared/src/main/java/com/remlists/shared/domain/repository/CrudRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../remlists-module-shared/src/main/java/com/remlists/shared/domain/valueObjects/Id.java" beforeDir="false" afterPath="$PROJECT_DIR$/../remlists-module-shared/src/main/java/com/remlists/shared/domain/valueObjects/Id.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../remlists-module-shared/src/main/java/com/remlists/shared/infrastructure/converter/EventEntityToJsonEventConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../remlists-module-shared/src/main/java/com/remlists/shared/infrastructure/converter/EventEntityToJsonEventConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../remlists-module-shared/src/main/java/com/remlists/shared/infrastructure/spring/config/RemlistsSharedModuleConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../remlists-module-shared/src/main/java/com/remlists/shared/infrastructure/spring/config/RemlistsSharedModuleConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../remlists-module-shared/src/main/java/com/remlists/shared/infrastructure/spring/kafka/KafkaMessagePublisher.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../remlists-module-shared/src/test/java/con/remlists/shared/infrastructure/KafkaMessagePublisherTest.java" beforeDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <ignored path="$PROJECT_DIR$/remlists-module-list-domain/target/" />
+    <ignored path="$PROJECT_DIR$/remlists-module-list-read/target/" />
+    <ignored path="$PROJECT_DIR$/remlists-module-list-write/target/" />
+    <ignored path="$PROJECT_DIR$/../remlists-entrypoint/target/" />
+    <ignored path="$PROJECT_DIR$/demo/target/" />
+    <ignored path="$PROJECT_DIR$/../remlists-module-user/target/" />
+    <ignored path="$PROJECT_DIR$/../remlists-module-user/remlists-module-user-write/target/" />
+    <ignored path="$PROJECT_DIR$/../remlists-module-user/remlists-module-user-read/target/" />
+    <ignored path="$PROJECT_DIR$/../remlists-module-user/remlists-module-user-domain/target/" />
+    <ignored path="$PROJECT_DIR$/../remlists-module-shared/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseLocalColorSettings">
+    <colors>
+      <entry key="09d600ba-eb62-491a-9aac-a70ff596fb2d" value="Orange" />
+      <entry key="20d4c55c-2258-4109-b2d8-6100dbf28c04" value="Green" />
+    </colors>
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="remlists-DB-DEV@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="remlists-DB-DEV@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="remlists-DB-DEV@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="remlists-list-DB-DEV: database" type="162271b6:PgImplModel$Database" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/remlists-module-list-write/src/main/java/com/remlists/list/write/infrastructure/axon/handlers/commands/CreateNewRemlistCommandHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="35" column="42" selection-start-line="35" selection-start-column="42" selection-end-line="35" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/remlists-module-list-write/src/main/java/com/remlists/list/write/application/services/impl/CreateNewRemListServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="613">
+              <caret line="45" column="16" selection-start-line="45" selection-start-column="16" selection-end-line="45" selection-end-column="16" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="JUnit 5 Test Class" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>readEntityManager</find>
+      <find>remListCommandRepositoryJPA</find>
+      <find>.</find>
+      <find>ddl-auto</find>
+      <find>RemListWriteJPA</find>
+      <find>hikari</find>
+      <find>.sql</find>
+      <find>ka</find>
+      <find>kafka</find>
+      <find>IdJPA</find>
+      <find>RemListJPA</find>
+      <find>RemListJPA.class</find>
+      <find>modelma</find>
+      <find>modelmapper</find>
+      <find>### --&gt;</find>
+      <find>mapper</find>
+      <find>mapStruct</find>
+      <find>@Builder</find>
+      <find>containsAll</find>
+      <find>saveAll</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>:</replace>
+      <replace>RemListJPA</replace>
+      <replace>typeIdJPAClass</replace>
+      <replace>ID_JPA</replace>
+      <replace>E_JPA</replace>
+      <replace>typeEntityJPAClass</replace>
+      <replace>MAPPER</replace>
+      <replace>mapper</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/remlists-module-list-write/src/main/java/com/remlists/list/write/infrastructure/spring/springData/read/RemListQueryDataRepository.java" />
+        <option value="$PROJECT_DIR$/remlists-module-list-write/src/main/java/com/remlists/list/write/infrastructure/spring/springData/RemListQueryDataRepository.java" />
+        <option value="$PROJECT_DIR$/remlists-module-list-write/src/main/java/com/remlists/list/write/infrastructure/spring/springData/impl/RemListQueryDataRepositoryImpl.java" />
+        <option value="$PROJECT_DIR$/remlists-module-list-write/src/main/resources/list-application.properties" />
+        <option value="$PROJECT_DIR$/remlists-module-list-write/src/main/java/com/remlists/list/write/infrastructure/axon/handlers/commands/CreateNewRemlistCommandHandler.java" />
+        <option value="$PROJECT_DIR$/remlists-module-list-write/src/main/java/com/remlists/list/write/infrastructure/axon/handlers/commands/CreateNewRemlistForReadSubsystemCommandHandler.java" />
+        <option value="$PROJECT_DIR$/remlists-module-list-write/src/main/resources/META-INF/persistence.xml" />
+        <option value="$PROJECT_DIR$/remlists-module-list-write/src/main/java/com/remlists/list/write/infrastructure/jpa/impl/RemListCommandRepositoryJPAImpl.java" />
+        <option value="$PROJECT_DIR$/remlists-module-list-write/src/main/java/com/remlists/list/write/infrastructure/spring/BeanNames.java" />
+        <option value="$PROJECT_DIR$/remlists-module-list-write/src/main/java/com/remlists/list/write/infrastructure/spring/springData/impl/RemListDataRepositoryImpl.java" />
+        <option value="$PROJECT_DIR$/remlists-module-list-write/src/main/java/com/remlists/list/write/application/services/impl/CreateNewRemListServiceImpl.java" />
+        <option value="$PROJECT_DIR$/remlists-module-list-write/src/test/java/com/remlists/list/write/infrastructure/repository/PersisNewRemlistTest.java" />
+        <option value="$PROJECT_DIR$/remlists-module-list-write/src/test/java/com/remlists/list/write/infrastructure/repository/PersistNewRemlistTest.java" />
+        <option value="$PROJECT_DIR$/remlists-module-list-write/src/main/resources/application-dev.yml" />
+        <option value="$PROJECT_DIR$/remlists-module-list-write/src/main/resources/application-prod.yml" />
+        <option value="$PROJECT_DIR$/remlists-module-list-write/src/test/java/com/remlists/list/write/infrastructure/CreateNewRemlistTest.java" />
+        <option value="$PROJECT_DIR$/remlists-module-list-write/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/remlists-module-list-write/src/test/resources/application-test.yml" />
+        <option value="$PROJECT_DIR$/remlists-module-list-write/src/test/java/com/remlists/list/write/infrastructure/SendCreateNewRemlistEventTest.java" />
+        <option value="$PROJECT_DIR$/remlists-module-list-write/src/test/java/KafkaTestConfig.java" />
+        <option value="$PROJECT_DIR$/remlists-module-list-write/src/main/java/com/remlists/list/write/infrastructure/jpa/valueObjects/RemListNameJPA.java" />
+        <option value="$PROJECT_DIR$/remlists-module-list-write/src/test/java/com/remlists/list/write/RemlistsModuleListWriteApplicationTests.java" />
+        <option value="$PROJECT_DIR$/remlists-module-list-write/src/main/java/com/remlists/list/write/infrastructure/jpa/impl/RepositoryJPA.java" />
+        <option value="$PROJECT_DIR$/../remlists-module-shared/src/main/java/com/remlists/shared/domain/repository/CrudRepository.java" />
+        <option value="$PROJECT_DIR$/remlists-module-list-domain/src/main/java/com/remlists/list/domain/repository/RemListRepository.java" />
+        <option value="$PROJECT_DIR$/remlists-module-list-write/src/main/java/com/remlists/list/write/infrastructure/spring/springData/RemListDataRepository.java" />
+        <option value="$PROJECT_DIR$/remlists-module-list-write/pom.xml" />
+        <option value="$PROJECT_DIR$/../remlists-entrypoint/src/main/java/com/remlists/entrypoint/controller/user/UserAccountRegistryController.java" />
+        <option value="$PROJECT_DIR$/../remlists-module-shared/src/main/java/com/remlists/shared/infrastructure/spring/config/RemlistsSharedModuleConfig.java" />
+        <option value="$PROJECT_DIR$/../remlists-entrypoint/pom.xml" />
+        <option value="$PROJECT_DIR$/../remlists-module-shared/pom.xml" />
+        <option value="$PROJECT_DIR$/remlists-module-list-write/src/main/java/com/remlists/list/write/infrastructure/spring/config/RemlistsListWriteConfig.java" />
+        <option value="$PROJECT_DIR$/remlists-module-list-domain/src/main/java/com/remlists/list/domain/valueObjects/RemListName.java" />
+        <option value="$PROJECT_DIR$/remlists-module-list-domain/src/main/java/com/remlists/list/domain/entities/RemList.java" />
+        <option value="$PROJECT_DIR$/remlists-module-list-write/target/generated-sources/annotations/com/remlists/list/write/infrastructure/mapStruct/RemListMapperImpl.java" />
+        <option value="$PROJECT_DIR$/../remlists-module-shared/src/main/java/com/remlists/shared/domain/valueObjects/Id.java" />
+        <option value="$PROJECT_DIR$/remlists-module-list-write/src/main/java/com/remlists/list/write/infrastructure/jpa/entities/RemListJPA.java" />
+        <option value="$PROJECT_DIR$/remlists-module-list-write/src/main/java/com/remlists/list/write/infrastructure/jpa/valueObjects/IdJPA.java" />
+        <option value="$PROJECT_DIR$/remlists-module-list-write/src/test/java/com/remlists/list/write/infrastructure/mappers/RemListMapperTest.java" />
+        <option value="$PROJECT_DIR$/remlists-module-list-write/src/main/java/com/remlists/list/write/infrastructure/mapStruct/RemListMapperImpl.java" />
+        <option value="$PROJECT_DIR$/remlists-module-list-write/src/main/java/com/remlists/list/write/infrastructure/mapStruct/RemListMapper.java" />
+        <option value="$PROJECT_DIR$/remlists-module-list-write/src/main/java/com/remlists/list/write/infrastructure/mappers/RemListMapper.java" />
+        <option value="$PROJECT_DIR$/../remlists-module-shared/src/main/java/com/remlists/shared/infrastructure/mapper/RemListMapper.java" />
+        <option value="$PROJECT_DIR$/../remlists-module-shared/src/main/java/com/remlists/shared/infrastructure/mapper/MapperBase.java" />
+        <option value="$PROJECT_DIR$/remlists-module-list-write/src/main/java/com/remlists/list/write/infrastructure/mapper/RemListMapperImpl.java" />
+        <option value="$PROJECT_DIR$/remlists-module-list-write/src/main/java/com/remlists/list/write/infrastructure/mapper/RemListMapper.java" />
+        <option value="$PROJECT_DIR$/remlists-module-list-write/src/main/java/com/remlists/list/write/infrastructure/jpa/impl/RemListRepositoryJPAImpl_borrar.java" />
+        <option value="$PROJECT_DIR$/remlists-module-list-write/src/main/java/com/remlists/list/write/infrastructure/jpa/impl/PruebaRepositoryImpl.java" />
+        <option value="$PROJECT_DIR$/remlists-module-list-write/src/main/java/com/remlists/list/write/infrastructure/jpa/impl/BaseRepositoryJPA.java" />
+        <option value="$PROJECT_DIR$/remlists-module-list-write/src/test/java/com/remlists/list/write/infrastructure/repository/RemListRepositoryTest.java" />
+        <option value="$PROJECT_DIR$/remlists-module-list-write/src/main/java/com/remlists/list/write/infrastructure/jpa/impl/RemListRepositoryJPAImpl.java" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="remlists-module-list-read" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="1967" />
+    <option name="y" value="-2" />
+    <option name="width" value="2513" />
+    <option name="height" value="1442" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <flattenPackages ProjectPane="false" />
+      <abbreviatePackageNames ProjectPane="true" />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="remlists-module-list" type="b2602c69:ProjectViewProjectNode" />
+              <item name="remlists-module-list" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="remlists-module-list" type="b2602c69:ProjectViewProjectNode" />
+              <item name="remlists-module-list" type="462c0819:PsiDirectoryNode" />
+              <item name="remlists-module-list-write" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="remlists-module-list" type="b2602c69:ProjectViewProjectNode" />
+              <item name="remlists-module-list" type="462c0819:PsiDirectoryNode" />
+              <item name="remlists-module-list-write" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="remlists-module-list" type="b2602c69:ProjectViewProjectNode" />
+              <item name="remlists-module-list" type="462c0819:PsiDirectoryNode" />
+              <item name="remlists-module-list-write" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="remlists-module-list" type="b2602c69:ProjectViewProjectNode" />
+              <item name="remlists-module-list" type="462c0819:PsiDirectoryNode" />
+              <item name="remlists-module-list-write" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="remlists-module-list" type="b2602c69:ProjectViewProjectNode" />
+              <item name="remlists-module-list" type="462c0819:PsiDirectoryNode" />
+              <item name="remlists-module-list-write" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="write" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="remlists-module-list" type="b2602c69:ProjectViewProjectNode" />
+              <item name="remlists-module-list" type="462c0819:PsiDirectoryNode" />
+              <item name="remlists-module-list-write" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="write" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="remlists-module-list" type="b2602c69:ProjectViewProjectNode" />
+              <item name="remlists-module-list" type="462c0819:PsiDirectoryNode" />
+              <item name="remlists-module-list-write" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="write" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="commands" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="remlists-module-list" type="b2602c69:ProjectViewProjectNode" />
+              <item name="remlists-module-list" type="462c0819:PsiDirectoryNode" />
+              <item name="remlists-module-list-write" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="write" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="services" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="remlists-module-list" type="b2602c69:ProjectViewProjectNode" />
+              <item name="remlists-module-list" type="462c0819:PsiDirectoryNode" />
+              <item name="remlists-module-list-write" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="write" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="services" type="462c0819:PsiDirectoryNode" />
+              <item name="impl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="remlists-module-list" type="b2602c69:ProjectViewProjectNode" />
+              <item name="remlists-module-list" type="462c0819:PsiDirectoryNode" />
+              <item name="remlists-module-list-write" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="write" type="462c0819:PsiDirectoryNode" />
+              <item name="infrastructure" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="remlists-module-list" type="b2602c69:ProjectViewProjectNode" />
+              <item name="remlists-module-list" type="462c0819:PsiDirectoryNode" />
+              <item name="remlists-module-list-write" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="write" type="462c0819:PsiDirectoryNode" />
+              <item name="infrastructure" type="462c0819:PsiDirectoryNode" />
+              <item name="handlers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="remlists-module-list" type="b2602c69:ProjectViewProjectNode" />
+              <item name="remlists-module-list" type="462c0819:PsiDirectoryNode" />
+              <item name="remlists-module-list-write" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="write" type="462c0819:PsiDirectoryNode" />
+              <item name="infrastructure" type="462c0819:PsiDirectoryNode" />
+              <item name="handlers" type="462c0819:PsiDirectoryNode" />
+              <item name="commands" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="remlists-module-list" type="b2602c69:ProjectViewProjectNode" />
+              <item name="remlists-module-list" type="462c0819:PsiDirectoryNode" />
+              <item name="remlists-module-list-write" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="write" type="462c0819:PsiDirectoryNode" />
+              <item name="infrastructure" type="462c0819:PsiDirectoryNode" />
+              <item name="jpa" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="remlists-module-list" type="b2602c69:ProjectViewProjectNode" />
+              <item name="remlists-module-list" type="462c0819:PsiDirectoryNode" />
+              <item name="remlists-module-list-write" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="write" type="462c0819:PsiDirectoryNode" />
+              <item name="infrastructure" type="462c0819:PsiDirectoryNode" />
+              <item name="jpa" type="462c0819:PsiDirectoryNode" />
+              <item name="entities" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="remlists-module-list" type="b2602c69:ProjectViewProjectNode" />
+              <item name="remlists-module-list" type="462c0819:PsiDirectoryNode" />
+              <item name="remlists-module-list-write" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="write" type="462c0819:PsiDirectoryNode" />
+              <item name="infrastructure" type="462c0819:PsiDirectoryNode" />
+              <item name="jpa" type="462c0819:PsiDirectoryNode" />
+              <item name="impl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="remlists-module-list" type="b2602c69:ProjectViewProjectNode" />
+              <item name="remlists-module-list" type="462c0819:PsiDirectoryNode" />
+              <item name="remlists-module-list-write" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="write" type="462c0819:PsiDirectoryNode" />
+              <item name="infrastructure" type="462c0819:PsiDirectoryNode" />
+              <item name="spring" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="remlists-module-list" type="b2602c69:ProjectViewProjectNode" />
+              <item name="remlists-module-list" type="462c0819:PsiDirectoryNode" />
+              <item name="remlists-module-list-write" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="write" type="462c0819:PsiDirectoryNode" />
+              <item name="infrastructure" type="462c0819:PsiDirectoryNode" />
+              <item name="spring" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="h2" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="full.screen.before.presentation.mode" value="false" />
+    <property name="go.gopath.indexing.explicitly.defined" value="true" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/remlists-module-list-write/src/test/resources/application-test.yml" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.27809164" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.annotationProcessors" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.remlists.list.write.infrastructure.mapStruct" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.remlists.list.write.infrastructure.jpa" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/remlists-module-list-write/src/main/resources" />
+      <recent name="$PROJECT_DIR$/remlists-module-list-write/src/test/resources" />
+      <recent name="$PROJECT_DIR$/remlists-module-list-write/src/main/java/com/remlists/list/write" />
+      <recent name="$PROJECT_DIR$/remlists-module-list-read/src/main/java/com/remlists/list/read" />
+      <recent name="$PROJECT_DIR$/remlists-module-list-domain/src/main/java/com/remlists/list" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.remlists.list.write.infrastructure" />
+      <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/remlists-module-list-write/src/main/resources/java" />
+    </key>
+  </component>
+  <component name="RubyModuleManagerSettings">
+    <option name="blackListedRootsPaths">
+      <list>
+        <option value="$PROJECT_DIR$/remlists-module-list-read" />
+      </list>
+    </option>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn remlists-module-shared clean install" />
+      <command value="mvn remlists-module-list-domain clean install" />
+      <command value="mvn remlists-module-list-read clean install" />
+    </option>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="JUnit.RemListRepositoryTest$PersisNewRemlistTest_ValidTests">
+    <configuration default="true" type="Applet">
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RemListMapperTest$RemListMapperTest_ValidTests.valid_remlistMapper" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="remlists-module-list-write" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.remlists.shared.infrastructure.mapper.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.remlists.list.write.infrastructure.mapper" />
+      <option name="MAIN_CLASS_NAME" value="com.remlists.list.write.infrastructure.mapper.RemListMapperTest$RemListMapperTest_ValidTests" />
+      <option name="METHOD_NAME" value="valid_remlistMapper" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RemListRepositoryTest$PersisNewRemlistTest_ValidTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="remlists-module-list-write" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.remlists.list.write.infrastructure.repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.remlists.list.write.infrastructure.repository" />
+      <option name="MAIN_CLASS_NAME" value="com.remlists.list.write.infrastructure.repository.RemListRepositoryTest$PersisNewRemlistTest_ValidTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RemListRepositoryTest$PersisNewRemlistTest_ValidTests.valid_safeAllRemlist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="remlists-module-list-write" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.remlists.list.write.infrastructure.repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.remlists.list.write.infrastructure.repository" />
+      <option name="MAIN_CLASS_NAME" value="com.remlists.list.write.infrastructure.repository.RemListRepositoryTest$PersisNewRemlistTest_ValidTests" />
+      <option name="METHOD_NAME" value="valid_safeAllRemlist" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RemListRepositoryTest$PersisNewRemlistTest_ValidTests.valid_safeRemlist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="remlists-module-list-write" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.remlists.list.write.infrastructure.repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.remlists.list.write.infrastructure.repository" />
+      <option name="MAIN_CLASS_NAME" value="com.remlists.list.write.infrastructure.repository.RemListRepositoryTest$PersisNewRemlistTest_ValidTests" />
+      <option name="METHOD_NAME" value="valid_safeRemlist" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RemListRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="remlists-module-list-write" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.remlists.list.write.infrastructure.repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.remlists.list.write.infrastructure.repository" />
+      <option name="MAIN_CLASS_NAME" value="com.remlists.list.write.infrastructure.repository.RemListRepositoryTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RemlistsEntrypointApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="remlists-entrypoint" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.remlists.entrypoint.RemlistsEntrypointApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RemlistsModuleListReadApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="remlists-module-list-read" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.remlists.list.read.RemlistsModuleListReadApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RemlistsModuleListWriteApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="remlists-module-list-write" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.remlists.list.write.RemlistsModuleListWriteApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RemlistsModuleUserReadApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="remlists-module-user-read" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.remlists.user.read.RemlistsModuleUserReadApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RemlistsModuleUserWriteApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="remlists-module-user-write" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.remlists.user.write.RemlistsModuleUserWriteApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RemlistsModuleUserWriteApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="remlists-module-user-write" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.remlists.user.write.RemlistsModuleUserWriteApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SharedRemlistsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="remlists-module-shared" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.remlists.shared.SharedRemlistsApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file enabled="true" id="idea.log" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.RemListRepositoryTest$PersisNewRemlistTest_ValidTests" />
+        <item itemvalue="JUnit.RemListRepositoryTest$PersisNewRemlistTest_ValidTests.valid_safeRemlist" />
+        <item itemvalue="JUnit.RemListRepositoryTest" />
+        <item itemvalue="JUnit.RemListRepositoryTest$PersisNewRemlistTest_ValidTests.valid_safeAllRemlist" />
+        <item itemvalue="JUnit.RemListMapperTest$RemListMapperTest_ValidTests.valid_remlistMapper" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="01b105c2-74d1-48ef-9f43-059d45c4adca" name="Default Changelist" comment="" />
+      <created>1559735789326</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1559735789326</updated>
+      <workItem from="1559735793062" duration="346000" />
+      <workItem from="1559736166761" duration="1739000" />
+      <workItem from="1559737939222" duration="1026000" />
+      <workItem from="1559752847258" duration="5194000" />
+      <workItem from="1559767720053" duration="17014000" />
+      <workItem from="1559846627073" duration="66732000" />
+      <workItem from="1560161924402" duration="19448000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="RemListRepositoryTest$PersisNewRemlistTest_ValidTests - 2019.06.11 at 00h 24m 54s.xml">
+      <configuration name="RemListRepositoryTest$PersisNewRemlistTest_ValidTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RemListRepositoryTest$PersisNewRemlistTest_ValidTests - 2019.06.11 at 00h 27m 16s.xml">
+      <configuration name="RemListRepositoryTest$PersisNewRemlistTest_ValidTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RemListRepositoryTest$PersisNewRemlistTest_ValidTests - 2019.06.11 at 00h 32m 26s.xml">
+      <configuration name="RemListRepositoryTest$PersisNewRemlistTest_ValidTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RemListRepositoryTest$PersisNewRemlistTest_ValidTests - 2019.06.11 at 00h 37m 39s.xml">
+      <configuration name="RemListRepositoryTest$PersisNewRemlistTest_ValidTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RemListRepositoryTest$PersisNewRemlistTest_ValidTests - 2019.06.11 at 00h 42m 57s.xml">
+      <configuration name="RemListRepositoryTest$PersisNewRemlistTest_ValidTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RemListRepositoryTest$PersisNewRemlistTest_ValidTests - 2019.06.11 at 00h 48m 48s.xml">
+      <configuration name="RemListRepositoryTest$PersisNewRemlistTest_ValidTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RemListRepositoryTest$PersisNewRemlistTest_ValidTests - 2019.06.11 at 01h 05m 49s.xml">
+      <configuration name="RemListRepositoryTest$PersisNewRemlistTest_ValidTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RemListRepositoryTest$PersisNewRemlistTest_ValidTests - 2019.06.11 at 01h 06m 53s.xml">
+      <configuration name="RemListRepositoryTest$PersisNewRemlistTest_ValidTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RemListRepositoryTest$PersisNewRemlistTest_ValidTests - 2019.06.11 at 01h 07m 24s.xml">
+      <configuration name="RemListRepositoryTest$PersisNewRemlistTest_ValidTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RemListRepositoryTest$PersisNewRemlistTest_ValidTests - 2019.06.11 at 01h 12m 37s.xml">
+      <configuration name="RemListRepositoryTest$PersisNewRemlistTest_ValidTests" configurationId="JUnit" />
+    </history-entry>
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="111499000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="1967" y="-2" width="2513" height="1442" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4992236" visible="true" weight="0.44507498" />
+      <window_info id="Structure" order="1" sideWeight="0.5007764" side_tool="true" weight="0.21848398" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info id="Learn" order="7" />
+      <window_info id="Web" order="8" sideWeight="0.5007764" side_tool="true" weight="0.22253749" />
+      <window_info id="Persistence" order="9" sideWeight="0.5007764" side_tool="true" weight="0.22253749" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32841614" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.503882" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.41304347" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Docker" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32963374" />
+      <window_info anchor="bottom" id="Database Changes" order="10" weight="0.32996893" />
+      <window_info anchor="bottom" id="Version Control" order="11" />
+      <window_info anchor="bottom" id="TunnelliJ" order="12" />
+      <window_info anchor="bottom" id="Network" order="13" />
+      <window_info anchor="bottom" id="Spring" order="14" weight="0.32919255" />
+      <window_info anchor="bottom" id="Java Enterprise" order="15" weight="0.32996893" />
+      <window_info anchor="bottom" id="Run Dashboard" order="16" weight="0.32919255" />
+      <window_info anchor="bottom" id="Run with VisualVM" order="17" />
+      <window_info anchor="bottom" id="Debug with VisualVM" order="18" />
+      <window_info anchor="bottom" id="Messages" order="19" weight="0.3400621" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="3" weight="0.32955006" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Kafka Tool" order="5" />
+      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="right" id="JSON Utils" order="7" />
+      <window_info anchor="right" id="Mongo Explorer" order="8" />
+      <window_info anchor="right" id="Database" order="9" weight="0.32955006" />
+      <window_info anchor="right" id="Palette&#9;" order="10" />
+      <window_info anchor="right" id="Theme Preview" order="11" />
+      <window_info anchor="right" id="Jms Messenger" order="12" />
+      <window_info anchor="right" id="Bean Validation" order="13" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/remlists-module-list-write/src/test/java/com/remlists/list/write/infrastructure/SendCreateNewRemlistEventTest.java</url>
+          <line>49</line>
+          <properties />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="JUnit">
+        <watch expression="E_JPA" language="JAVA" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="watch">
+      <expression>
+        <expression-string>E_JPA</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/a4861690-4e90-4d83-b7e9-a8e8592a6e00/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/remlists-module-list-write/src/main/resources/META-INF/persistence.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-jpa/2.1.8.RELEASE/spring-data-jpa-2.1.8.RELEASE-sources.jar!/org/springframework/data/jpa/repository/support/JpaRepositoryImplementation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="30" column="17" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-jpa/2.1.8.RELEASE/spring-data-jpa-2.1.8.RELEASE-sources.jar!/org/springframework/data/jpa/repository/support/SimpleJpaRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="75" column="66" selection-start-line="75" selection-start-column="66" selection-end-line="75" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/remlists-module-list-write/src/main/java/com/remlists/list/write/infrastructure/spring/BeanNames.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="47" column="26" selection-start-line="47" selection-start-column="26" selection-end-line="47" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/remlists-module-list-write/src/main/resources/application-dev.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/remlists-module-list-write/src/main/resources/application-prod.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/remlists-module-list-write/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="20" column="27" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/remlists-module-list-write/src/test/resources/application-test.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/remlists-module-list-write/src/test/java/KafkaTestConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="24" column="61" selection-start-line="24" selection-start-column="61" selection-end-line="24" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/remlists-module-list-write/src/test/java/com/remlists/list/write/infrastructure/SendCreateNewRemlistEventTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="57" lean-forward="true" selection-start-line="57" selection-end-line="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/5.1.7.RELEASE/spring-aop-5.1.7.RELEASE-sources.jar!/org/springframework/aop/framework/CglibAopProxy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="660" selection-start-line="660" selection-end-line="660" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/remlists-module-list-write/src/main/java/com/remlists/list/write/infrastructure/jpa/valueObjects/RemListNameJPA.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="505">
+          <caret line="50" column="18" selection-start-line="50" selection-start-column="18" selection-end-line="50" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/remlists-module-list-write/src/test/java/com/remlists/list/write/infrastructure/CreateNewRemlistTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="27" column="1" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/remlists-module-list-write/src/test/java/com/remlists/list/write/RemlistsModuleListWriteApplicationTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="696">
+          <caret line="65" column="22" selection-start-line="65" selection-start-column="22" selection-end-line="65" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.sdkman/candidates/java/11.0.1-open/lib/src.zip!/java.base/java/util/List.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="137" column="17" selection-start-line="137" selection-start-column="17" selection-end-line="137" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/remlists-module-list-write/target/classes/com/remlists/list/write/infrastructure/jpa/impl/BaseRepositoryJPA.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="44" column="59" lean-forward="true" selection-start-line="44" selection-start-column="59" selection-end-line="44" selection-end-column="59" />
+          <folding>
+            <element signature="e#0#4000#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/remlists-module-list-write/target/classes/com/remlists/list/write/infrastructure/jpa/impl/PruebaRepositoryImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#1102#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/remlists-module-list-write/src/main/java/com/remlists/list/write/infrastructure/spring/springData/impl/RemListDataRepositoryImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="21" column="64" selection-start-line="21" selection-start-column="64" selection-end-line="21" selection-end-column="64" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/remlists-module-list-write/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="24" column="42" lean-forward="true" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
+          <folding>
+            <element signature="n#parent#0;n#project#0;n#!!top" />
+            <element signature="n#dependency#0;n#dependencies#0;n#project#0;n#!!top" />
+            <element signature="n#dependency#1;n#dependencies#0;n#project#0;n#!!top" />
+            <element signature="n#dependency#2;n#dependencies#0;n#project#0;n#!!top" />
+            <element signature="n#dependency#3;n#dependencies#0;n#project#0;n#!!top" />
+            <element signature="n#dependency#4;n#dependencies#0;n#project#0;n#!!top" />
+            <element signature="n#dependency#5;n#dependencies#0;n#project#0;n#!!top" />
+            <element signature="n#dependency#6;n#dependencies#0;n#project#0;n#!!top" />
+            <element signature="n#dependency#7;n#dependencies#0;n#project#0;n#!!top" />
+            <element signature="n#exclusions#0;n#dependency#7;n#dependencies#0;n#project#0;n#!!top" />
+            <element signature="n#exclusion#0;n#exclusions#0;n#dependency#7;n#dependencies#0;n#project#0;n#!!top" />
+            <element signature="n#dependency#8;n#dependencies#0;n#project#0;n#!!top" />
+            <element signature="n#dependency#9;n#dependencies#0;n#project#0;n#!!top" />
+            <element signature="n#dependency#10;n#dependencies#0;n#project#0;n#!!top" />
+            <element signature="n#dependency#12;n#dependencies#0;n#project#0;n#!!top" />
+            <element signature="n#dependency#13;n#dependencies#0;n#project#0;n#!!top" />
+            <element signature="n#dependency#14;n#dependencies#0;n#project#0;n#!!top" />
+            <element signature="n#dependency#15;n#dependencies#0;n#project#0;n#!!top" />
+            <element signature="n#dependency#16;n#dependencies#0;n#project#0;n#!!top" />
+            <element signature="n#dependency#17;n#dependencies#0;n#project#0;n#!!top" />
+            <element signature="n#dependency#18;n#dependencies#0;n#project#0;n#!!top" />
+            <element signature="n#dependency#19;n#dependencies#0;n#project#0;n#!!top" />
+            <element signature="n#dependency#20;n#dependencies#0;n#project#0;n#!!top" />
+            <element signature="n#dependency#21;n#dependencies#0;n#project#0;n#!!top" />
+            <element signature="n#dependency#22;n#dependencies#0;n#project#0;n#!!top" />
+            <element signature="n#dependency#23;n#dependencies#0;n#project#0;n#!!top" />
+            <element signature="n#profiles#0;n#project#0;n#!!top" />
+            <element signature="n#profile#0;n#profiles#0;n#project#0;n#!!top" />
+            <element signature="n#activation#0;n#profile#0;n#profiles#0;n#project#0;n#!!top" />
+            <element signature="n#property#0;n#activation#0;n#profile#0;n#profiles#0;n#project#0;n#!!top" />
+            <element signature="n#properties#0;n#profile#0;n#profiles#0;n#project#0;n#!!top" />
+            <element signature="n#dependencies#0;n#profile#0;n#profiles#0;n#project#0;n#!!top" />
+            <element signature="n#dependency#0;n#dependencies#0;n#profile#0;n#profiles#0;n#project#0;n#!!top" />
+            <element signature="n#profile#1;n#profiles#0;n#project#0;n#!!top" />
+            <element signature="n#activation#0;n#profile#1;n#profiles#0;n#project#0;n#!!top" />
+            <element signature="n#property#0;n#activation#0;n#profile#1;n#profiles#0;n#project#0;n#!!top" />
+            <element signature="n#properties#0;n#profile#1;n#profiles#0;n#project#0;n#!!top" />
+            <element signature="n#dependencies#0;n#profile#1;n#profiles#0;n#project#0;n#!!top" />
+            <element signature="n#dependency#0;n#dependencies#0;n#profile#1;n#profiles#0;n#project#0;n#!!top" />
+            <element signature="n#build#0;n#profile#1;n#profiles#0;n#project#0;n#!!top" />
+            <element signature="n#plugins#0;n#build#0;n#profile#1;n#profiles#0;n#project#0;n#!!top" />
+            <element signature="n#plugin#0;n#plugins#0;n#build#0;n#profile#1;n#profiles#0;n#project#0;n#!!top" />
+            <element signature="n#configuration#0;n#plugin#0;n#plugins#0;n#build#0;n#profile#1;n#profiles#0;n#project#0;n#!!top" />
+            <element signature="n#schemas#0;n#configuration#0;n#plugin#0;n#plugins#0;n#build#0;n#profile#1;n#profiles#0;n#project#0;n#!!top" />
+            <element signature="n#dependencies#0;n#plugin#0;n#plugins#0;n#build#0;n#profile#1;n#profiles#0;n#project#0;n#!!top" />
+            <element signature="n#dependency#0;n#dependencies#0;n#plugin#0;n#plugins#0;n#build#0;n#profile#1;n#profiles#0;n#project#0;n#!!top" />
+            <element signature="n#profile#2;n#profiles#0;n#project#0;n#!!top" />
+            <element signature="n#properties#0;n#profile#2;n#profiles#0;n#project#0;n#!!top" />
+            <element signature="n#resources#0;n#build#0;n#project#0;n#!!top" />
+            <element signature="n#resource#0;n#resources#0;n#build#0;n#project#0;n#!!top" />
+            <element signature="n#resource#1;n#resources#0;n#build#0;n#project#0;n#!!top" />
+            <element signature="n#plugin#0;n#plugins#0;n#build#0;n#project#0;n#!!top" />
+            <element signature="n#executions#0;n#plugin#0;n#plugins#0;n#build#0;n#project#0;n#!!top" />
+            <element signature="n#execution#0;n#executions#0;n#plugin#0;n#plugins#0;n#build#0;n#project#0;n#!!top" />
+            <element signature="n#goals#0;n#execution#0;n#executions#0;n#plugin#0;n#plugins#0;n#build#0;n#project#0;n#!!top" />
+            <element signature="n#configuration#0;n#execution#0;n#executions#0;n#plugin#0;n#plugins#0;n#build#0;n#project#0;n#!!top" />
+            <element signature="n#plugin#1;n#plugins#0;n#build#0;n#project#0;n#!!top" />
+            <element signature="n#configuration#0;n#plugin#1;n#plugins#0;n#build#0;n#project#0;n#!!top" />
+            <element signature="n#plugin#2;n#plugins#0;n#build#0;n#project#0;n#!!top" />
+            <element signature="n#configuration#0;n#plugin#2;n#plugins#0;n#build#0;n#project#0;n#!!top" />
+            <element signature="n#argLine#0;n#configuration#0;n#plugin#2;n#plugins#0;n#build#0;n#project#0;n#!!top" />
+            <element signature="n#plugin#3;n#plugins#0;n#build#0;n#project#0;n#!!top" />
+            <element signature="n#configuration#0;n#plugin#3;n#plugins#0;n#build#0;n#project#0;n#!!top" />
+            <element signature="n#argLine#0;n#configuration#0;n#plugin#3;n#plugins#0;n#build#0;n#project#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/remlists-module-list-write/src/main/java/com/remlists/list/write/infrastructure/spring/config/RemlistsListWriteConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="11" column="33" lean-forward="true" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/remlists-module-list-write/src/main/java/com/remlists/list/write/infrastructure/spring/springData/RemListDataRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="17" column="84" selection-start-line="17" selection-start-column="84" selection-end-line="17" selection-end-column="84" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/remlists-module-list-domain/src/main/java/com/remlists/list/domain/entities/RemList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="19" column="9" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
+          <folding>
+            <element signature="method#RemList#0;class#RemList#0" />
+            <element signature="method#RemList#1;class#RemList#0" />
+            <element signature="method#toString#0;class#RemList#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../remlists-module-shared/src/main/java/com/remlists/shared/domain/valueObjects/Id.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="453">
+          <caret line="50" selection-start-line="50" selection-end-line="63" selection-end-column="5" />
+          <folding>
+            <element signature="method#Id#0;class#Id#0" />
+            <element signature="method#equals#0;class#Id#0" />
+            <element signature="method#toString#0;class#Id#0" />
+            <element signature="e#1182#1183#0" expanded="true" />
+            <element signature="e#1220#1221#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/remlists-module-list-write/target/generated-sources/annotations/com/remlists/list/write/infrastructure/mapStruct/RemListMapperImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/remlists-module-list-domain/src/main/java/com/remlists/list/domain/valueObjects/RemListName.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="13" column="22" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
+          <folding>
+            <element signature="e#462#463#0" expanded="true" />
+            <element signature="e#494#495#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/remlists-module-list-write/src/main/java/com/remlists/list/write/infrastructure/jpa/entities/RemListJPA.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="954">
+          <caret line="61" selection-start-line="61" selection-end-line="61" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/remlists-module-list-write/src/main/java/com/remlists/list/write/infrastructure/jpa/valueObjects/IdJPA.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="990">
+          <caret line="69" selection-start-line="69" selection-end-line="69" />
+          <folding>
+            <element signature="e#1344#1345#0" expanded="true" />
+            <element signature="e#1390#1391#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../remlists-entrypoint/src/main/java/com/remlists/entrypoint/controller/user/UserAccountRegistryController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="473">
+          <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/remlists-module-list-write/src/test/java/com/remlists/list/write/infrastructure/mapper/RemListMapperTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="45" selection-start-line="45" selection-end-line="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/remlists-module-list-domain/src/main/java/com/remlists/list/domain/repository/RemListRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="56" lean-forward="true" selection-start-line="5" selection-start-column="56" selection-end-line="5" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/remlists-module-list-write/src/main/java/com/remlists/list/write/infrastructure/jpa/impl/RemListRepositoryJPAImpl_borrar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="53" column="73" lean-forward="true" selection-start-line="53" selection-start-column="73" selection-end-line="53" selection-end-column="73" />
+          <folding>
+            <element signature="method#RemListRepositoryJPAImpl_borrar#0;class#RemListRepositoryJPAImpl_borrar#0" />
+            <element signature="method#save#0;class#RemListRepositoryJPAImpl_borrar#0" />
+            <element signature="class#2007:2048" />
+            <element signature="class#2253:2291" />
+            <element signature="method#findById#0;class#RemListRepositoryJPAImpl_borrar#0" />
+            <element signature="method#existsById#0;class#RemListRepositoryJPAImpl_borrar#0" />
+            <element signature="method#findAll#0;class#RemListRepositoryJPAImpl_borrar#0" />
+            <element signature="class#2931:2969" />
+            <element signature="method#findAllById#0;class#RemListRepositoryJPAImpl_borrar#0" />
+            <element signature="class#3142:3178" />
+            <element signature="class#3349:3387" />
+            <element signature="method#deleteById#0;class#RemListRepositoryJPAImpl_borrar#0" />
+            <element signature="method#delete#0;class#RemListRepositoryJPAImpl_borrar#0" />
+            <element signature="method#deleteAll#0;class#RemListRepositoryJPAImpl_borrar#0" />
+            <element signature="class#3984:4025" />
+            <element signature="method#deleteAll#1;class#RemListRepositoryJPAImpl_borrar#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../remlists-module-shared/src/main/java/com/remlists/shared/domain/repository/CrudRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="648">
+          <caret line="39" column="20" selection-start-line="39" selection-start-column="4" selection-end-line="39" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/remlists-module-list-write/src/test/java/com/remlists/list/write/infrastructure/repository/RemListRepositoryTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="40" column="36" selection-start-line="40" selection-start-column="36" selection-end-line="40" selection-end-column="36" />
+          <folding>
+            <element signature="e#1181#1204#0" />
+            <element signature="e#1761#1788#0" />
+            <element signature="e#1854#1859#0" />
+            <element signature="method#valid_safeRemlist#0;class#PersisNewRemlistTest_ValidTests#0;class#RemListRepositoryTest#0" />
+            <element signature="e#2346#2351#0" />
+            <element signature="e#3421#3426#0" />
+            <element signature="method#valid_findById#0;class#PersisNewRemlistTest_ValidTests#0;class#RemListRepositoryTest#0" />
+            <element signature="e#4079#4084#0" />
+            <element signature="method#valid_existsById#0;class#PersisNewRemlistTest_ValidTests#0;class#RemListRepositoryTest#0" />
+            <element signature="e#4514#4519#0" />
+            <element signature="method#valid_findAll#0;class#PersisNewRemlistTest_ValidTests#0;class#RemListRepositoryTest#0" />
+            <element signature="e#5354#5359#0" />
+            <element signature="method#valid_findAllById#0;class#PersisNewRemlistTest_ValidTests#0;class#RemListRepositoryTest#0" />
+            <element signature="e#6313#6318#0" />
+            <element signature="method#valid_count#0;class#PersisNewRemlistTest_ValidTests#0;class#RemListRepositoryTest#0" />
+            <element signature="e#7008#7013#0" />
+            <element signature="method#valid_deleteById#0;class#PersisNewRemlistTest_ValidTests#0;class#RemListRepositoryTest#0" />
+            <element signature="e#7861#7866#0" />
+            <element signature="method#valid_delete#0;class#PersisNewRemlistTest_ValidTests#0;class#RemListRepositoryTest#0" />
+            <element signature="e#8697#8702#0" />
+            <element signature="method#valid_deleteAllIterable#0;class#PersisNewRemlistTest_ValidTests#0;class#RemListRepositoryTest#0" />
+            <element signature="e#9845#9850#0" />
+            <element signature="method#valid_deleteAll#0;class#PersisNewRemlistTest_ValidTests#0;class#RemListRepositoryTest#0" />
+            <element signature="e#10555#10583#0" />
+            <element signature="class#PersisNewRemlistTest_FailTests#0;class#RemListRepositoryTest#0" />
+            <element signature="e#10648#10653#0" />
+            <element signature="method#fail#0;class#PersisNewRemlistTest_FailTests#0;class#RemListRepositoryTest#0" />
+            <element signature="e#10723#10730#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/remlists-module-list-write/src/main/java/com/remlists/list/write/infrastructure/mapper/readme.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../remlists-module-shared/src/main/java/com/remlists/shared/infrastructure/mapper/MapperBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="38" column="47" selection-start-line="38" selection-start-column="47" selection-end-line="38" selection-end-column="47" />
+          <folding>
+            <element signature="method#MapperBase#0;class#MapperBase#0" />
+            <element signature="method#entityJPAToEntity#0;class#MapperBase#0" />
+            <element signature="method#entityToEntityJPA#0;class#MapperBase#0" />
+            <element signature="method#iterableEntitiesToIterableEntitiesJPA#0;class#MapperBase#0" />
+            <element signature="method#iterableEntitiesJPAToIterableEntities#0;class#MapperBase#0" />
+            <element signature="method#idToIdJPA#0;class#MapperBase#0" />
+            <element signature="method#iterableIdToIterableIdJPA#0;class#MapperBase#0" />
+            <element signature="method#entityJPAToOptionalEntity#0;class#MapperBase#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/remlists-module-list-write/src/main/java/com/remlists/list/write/infrastructure/mapper/RemListMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="14" column="40" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/remlists-module-list-write/src/main/java/com/remlists/list/write/infrastructure/jpa/impl/RemListRepositoryJPAImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../remlists-module-shared/src/main/java/com/remlists/shared/infrastructure/jpa/BaseRepositoryJPA.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+          <folding>
+            <element signature="method#BaseRepositoryJPA#0;class#BaseRepositoryJPA#0" />
+            <element signature="method#findById#0;class#BaseRepositoryJPA#0" />
+            <element signature="method#existsById#0;class#BaseRepositoryJPA#0" />
+            <element signature="method#findAll#0;class#BaseRepositoryJPA#0" />
+            <element signature="method#findAllById#0;class#BaseRepositoryJPA#0" />
+            <element signature="method#deleteById#0;class#BaseRepositoryJPA#0" />
+            <element signature="method#delete#0;class#BaseRepositoryJPA#0" />
+            <element signature="method#deleteAll#0;class#BaseRepositoryJPA#0" />
+            <element signature="method#deleteAll#1;class#BaseRepositoryJPA#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../remlists-module-shared/src/main/java/com/remlists/shared/infrastructure/converter/JsonEventToEntityEventConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../remlists-module-shared/src/main/java/com/remlists/shared/infrastructure/converter/EventEntityToJsonEventConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../remlists-module-shared/src/main/java/com/remlists/shared/domain/entities/Entity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="23" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../remlists-module-shared/src/main/java/com/remlists/shared/domain/events/MessagePublisher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../remlists-module-shared/src/main/java/com/remlists/shared/domain/events/Event.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+          <folding>
+            <element signature="class#Data#0;class#Event#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../remlists-module-shared/src/main/java/com/remlists/shared/domain/events/EventHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../remlists-module-shared/src/main/java/com/remlists/shared/infrastructure/spring/config/RemlistsSharedModuleConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="21" column="21" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../remlists-module-shared/src/main/java/com/remlists/shared/application/queries/QueryHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/remlists-module-list-write/src/main/java/com/remlists/list/write/application/services/CreateNewRemListService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/remlists-module-list-write/src/main/java/com/remlists/list/write/application/commands/CreateNewRemListCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="8" column="59" selection-start-line="8" selection-start-column="59" selection-end-line="8" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/remlists-module-list-write/src/main/java/com/remlists/list/write/infrastructure/axon/handlers/commands/CreateNewRemlistCommandHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="35" column="42" selection-start-line="35" selection-start-column="42" selection-end-line="35" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/remlists-module-list-write/src/main/java/com/remlists/list/write/application/services/impl/CreateNewRemListServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="613">
+          <caret line="45" column="16" selection-start-line="45" selection-start-column="16" selection-end-line="45" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.27809164" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Spring</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.27809164" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.27809164" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>11</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.27809164" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>JPA|remlists-module-list-write</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.27809164" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: javax.validation:validation-api:2.0.1.Final</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.27809164" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+  <component name="mavenExecuteGoalHistory">
+    <option value="" />
+  </component>
+</project>

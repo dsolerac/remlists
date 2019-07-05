@@ -1,0 +1,17 @@
+com/remlists/user/domain/events/UserWasDeleted.class
+com/remlists/user/domain/repository/RoleRepository.class
+com/remlists/user/domain/valueObjects/ShortName.class
+com/remlists/user/domain/repository/UserRepository.class
+com/remlists/user/domain/valueObjects/RoleName.class
+com/remlists/user/domain/valueObjects/RoleDescription.class
+com/remlists/user/domain/exceptions/ShortNameAlreadyExistsException.class
+com/remlists/user/domain/services/CreateRemlistsUserDomainService.class
+com/remlists/user/domain/events/NewUserWasCreated.class
+com/remlists/user/domain/valueObjects/EmailAddress.class
+com/remlists/user/domain/exceptions/NotValidEmailAddressException.class
+com/remlists/user/domain/entities/Role.class
+com/remlists/user/domain/valueObjects/EmailVerified.class
+com/remlists/user/domain/exceptions/EmailAddressAlreadyExistsException.class
+com/remlists/user/domain/entities/User.class
+com/remlists/user/domain/exceptions/NotValidUsernameException.class
+com/remlists/user/domain/exceptions/NotValidShortNameException.class

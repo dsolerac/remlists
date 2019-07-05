@@ -1,0 +1,17 @@
+/home/dsolerac/Proyectos/remlists/remlists-module-user/remlists-module-user-domain/src/main/java/com/remlists/user/domain/exceptions/EmailAddressAlreadyExistsException.java
+/home/dsolerac/Proyectos/remlists/remlists-module-user/remlists-module-user-domain/src/main/java/com/remlists/user/domain/repository/RoleRepository.java
+/home/dsolerac/Proyectos/remlists/remlists-module-user/remlists-module-user-domain/src/main/java/com/remlists/user/domain/entities/Role.java
+/home/dsolerac/Proyectos/remlists/remlists-module-user/remlists-module-user-domain/src/main/java/com/remlists/user/domain/services/CreateRemlistsUserDomainService.java
+/home/dsolerac/Proyectos/remlists/remlists-module-user/remlists-module-user-domain/src/main/java/com/remlists/user/domain/valueObjects/ShortName.java
+/home/dsolerac/Proyectos/remlists/remlists-module-user/remlists-module-user-domain/src/main/java/com/remlists/user/domain/repository/UserRepository.java
+/home/dsolerac/Proyectos/remlists/remlists-module-user/remlists-module-user-domain/src/main/java/com/remlists/user/domain/exceptions/NotValidEmailAddressException.java
+/home/dsolerac/Proyectos/remlists/remlists-module-user/remlists-module-user-domain/src/main/java/com/remlists/user/domain/valueObjects/RoleDescription.java
+/home/dsolerac/Proyectos/remlists/remlists-module-user/remlists-module-user-domain/src/main/java/com/remlists/user/domain/valueObjects/EmailVerified.java
+/home/dsolerac/Proyectos/remlists/remlists-module-user/remlists-module-user-domain/src/main/java/com/remlists/user/domain/entities/User.java
+/home/dsolerac/Proyectos/remlists/remlists-module-user/remlists-module-user-domain/src/main/java/com/remlists/user/domain/exceptions/NotValidUsernameException.java
+/home/dsolerac/Proyectos/remlists/remlists-module-user/remlists-module-user-domain/src/main/java/com/remlists/user/domain/exceptions/NotValidShortNameException.java
+/home/dsolerac/Proyectos/remlists/remlists-module-user/remlists-module-user-domain/src/main/java/com/remlists/user/domain/valueObjects/EmailAddress.java
+/home/dsolerac/Proyectos/remlists/remlists-module-user/remlists-module-user-domain/src/main/java/com/remlists/user/domain/valueObjects/RoleName.java
+/home/dsolerac/Proyectos/remlists/remlists-module-user/remlists-module-user-domain/src/main/java/com/remlists/user/domain/exceptions/ShortNameAlreadyExistsException.java
+/home/dsolerac/Proyectos/remlists/remlists-module-user/remlists-module-user-domain/src/main/java/com/remlists/user/domain/events/NewUserWasCreated.java
+/home/dsolerac/Proyectos/remlists/remlists-module-user/remlists-module-user-domain/src/main/java/com/remlists/user/domain/events/UserWasDeleted.java

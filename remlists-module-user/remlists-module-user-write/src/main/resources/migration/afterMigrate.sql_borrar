@@ -1,0 +1,18 @@
+truncate table users;
+
+INSERT INTO users (id, uuid, email, shortname)
+VALUES ('300', '26a5c3c2-51b0-4280-837b-636a8e9fde08', 'Ranga@gm.com', 'Ranga');
+
+INSERT INTO users (id, uuid, email, shortname)
+VALUES ('301', 'b8b59bd9-03a4-42f1-891a-6195b01903e0', 'dsc@gm.com', 'dsc');
+
+INSERT INTO users (id, uuid, email, shortname)
+VALUES ('302', 'add31586-3995-403a-b14e-d5e9f8867231', 'ccm@gm.com', 'ccm');
+
+INSERT INTO users (id, uuid, email, shortname)
+VALUES ('303', '0cef9bdf-ca96-448d-b909-a4b2c388398e', 'psc@gm.com', 'psc');
+
+
+-- INSERT INTO users (uuid, email, shortname) VALUES(uuid_generate_v4(),'Ranga@gm.com', 'Ranga');
+
+

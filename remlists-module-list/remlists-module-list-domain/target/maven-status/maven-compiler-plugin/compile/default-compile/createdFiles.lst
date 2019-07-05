@@ -1,0 +1,5 @@
+com/remlists/list/domain/entities/RemList.class
+com/remlists/list/domain/exceptions/RemlistNotFoundException.class
+com/remlists/list/domain/repository/RemListRepository.class
+com/remlists/list/domain/events/NewRemListWasCreated.class
+com/remlists/list/domain/valueObjects/RemListName.class

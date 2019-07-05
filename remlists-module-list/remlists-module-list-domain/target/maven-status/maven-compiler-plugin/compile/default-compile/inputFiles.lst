@@ -1,0 +1,5 @@
+/home/dsolerac/Proyectos/remlists/remlists-module-list/remlists-module-list-domain/src/main/java/com/remlists/list/domain/valueObjects/RemListName.java
+/home/dsolerac/Proyectos/remlists/remlists-module-list/remlists-module-list-domain/src/main/java/com/remlists/list/domain/entities/RemList.java
+/home/dsolerac/Proyectos/remlists/remlists-module-list/remlists-module-list-domain/src/main/java/com/remlists/list/domain/repository/RemListRepository.java
+/home/dsolerac/Proyectos/remlists/remlists-module-list/remlists-module-list-domain/src/main/java/com/remlists/list/domain/events/NewRemListWasCreated.java
+/home/dsolerac/Proyectos/remlists/remlists-module-list/remlists-module-list-domain/src/main/java/com/remlists/list/domain/exceptions/RemlistNotFoundException.java

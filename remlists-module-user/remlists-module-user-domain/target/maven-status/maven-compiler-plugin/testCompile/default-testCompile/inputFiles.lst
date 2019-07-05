@@ -1,0 +1,7 @@
+/home/dsolerac/Proyectos/remlists/remlists-module-user/remlists-module-user-domain/src/test/java/com/remlists/user/domain/valueObjects/ShortNameTest.java
+/home/dsolerac/Proyectos/remlists/remlists-module-user/remlists-module-user-domain/src/test/java/com/remlists/user/domain/entities/UserTest.java
+/home/dsolerac/Proyectos/remlists/remlists-module-user/remlists-module-user-domain/src/test/java/com/remlists/user/domain/services/CreateRemlistsUserDomainServiceTest.java
+/home/dsolerac/Proyectos/remlists/remlists-module-user/remlists-module-user-domain/src/test/java/com/remlists/user/domain/valueObjects/RoleNameTest.java
+/home/dsolerac/Proyectos/remlists/remlists-module-user/remlists-module-user-domain/src/test/java/com/remlists/user/domain/valueObjects/RoleDescriptionTest.java
+/home/dsolerac/Proyectos/remlists/remlists-module-user/remlists-module-user-domain/src/test/java/com/remlists/user/domain/entities/RoleTest.java
+/home/dsolerac/Proyectos/remlists/remlists-module-user/remlists-module-user-domain/src/test/java/com/remlists/user/domain/valueObjects/EmailAddressTest.java

@@ -1,0 +1,84 @@
+
+#Should be overwritten by env parameter
+
+
+
+remlists:
+  list:
+    read:
+      config:
+        host:
+          shortName: node1
+        datasource:
+          driver-class-shortName: org.postgresql.Driver
+        spring:
+          datasource:
+            platform: POSTGRESQL
+        jpa:
+          properties:
+            hibernate:
+              dialect: org.hibernate.dialect.PostgreSQLDialect
+          database: POSTGRESQL
+          generate-ddl: false
+          show-sql: true
+          hibernate:
+            ddl-auto: none
+
+
+
+
+
+#The following properties configuration must not be changed ever
+
+
+spring:
+
+  profiles:
+    active: @spring.profiles.active@
+
+  application:
+    shortName: remlists-module-list-read
+
+  kafka:
+    bootstrap-servers: ${remlists.list.config.kafka.bootstrap-servers}
+    consumer:
+      group-id: ${remlists.list.config.kafka.group-id}
+
+  messages:
+    basename: messages, ValidationMessages
+
+  datasource:
+    url: jdbc:postgresql://${remlists.list.config.jdbc.host}:${remlists.list.config.jdbc.port}/${remlists.list.config.jdbc.database}?reWriteBatchedInserts=true
+    username: ${remlists.list.config.jdbc.username}
+    password: ${remlists.list.config.jdbc.password}
+    driver-class-shortName: ${remlists.list.config.datasource.driver-class-shortName}
+    platform: ${remlists.list.config.spring.datasource.platform}
+
+    hikari:
+      connection-timeout: ${remlists.list.config.jdbc.hikari.connectiontimeout}
+      idle-timeout: ${remlists.list.config.jdbc.hikari.idletimeout}
+      max-lifetime: ${remlists.list.config.jdbc.hikari.maxlifetime}
+      maximum-pool-size: ${remlists.list.config.jdbc.hikari.maximumpoolsize}
+      minimum-idle: ${remlists.list.config.jdbc.hikari.minimumidle}
+
+  jpa:
+    hibernate:
+      ddl-auto: ${remlists.list.config.jpa.hibernate.ddl-auto}
+
+    show-sql: ${remlists.list.config.jpa.show-sql}
+    generate-ddl: ${remlists.list.config.jpa.generate-ddl}
+    database: ${remlists.list.config.jpa.database}
+    properties:
+      hibernate:
+        dialect: ${remlists.list.config.jpa.properties.hibernate.dialect}
+        format_sql: true
+        jdbc:
+          lob:
+            non_contextual_creation: false
+        default_schema: write
+
+
+jasypt:
+  encryptor:
+    password: remlists
+    algorithm: PBEWithMD5AndDES
