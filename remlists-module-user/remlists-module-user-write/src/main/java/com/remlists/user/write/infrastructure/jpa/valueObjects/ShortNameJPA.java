@@ -22,10 +22,10 @@ public class ShortNameJPA implements ValueObject {
 
 
     public ShortNameJPA(String shortName) {
-        this.setShorName(shortName);
+        this.setShortName(shortName);
     }
 
-    protected ShortNameJPA() {
+    public ShortNameJPA() {
     }
 
 
@@ -34,7 +34,7 @@ public class ShortNameJPA implements ValueObject {
     }
 
 
-    private void setShorName(String shortName) {
+    public void setShortName(String shortName) {
 
         this.shortName = shortName;
     }

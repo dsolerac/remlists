@@ -20,7 +20,7 @@ public class RoleDescriptionJPA implements ValueObject {
         this.description = description;
     }
 
-    protected RoleDescriptionJPA() {
+    public RoleDescriptionJPA() {
     }
 
 

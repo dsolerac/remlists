@@ -17,7 +17,7 @@ public class EmailAddress implements ValueObject {
     @Email(message = "{EmailAddress.emailAddress.Email}")
     private String emailAddress;
 
-    protected EmailAddress() {
+    public EmailAddress() {
     }
 
     public EmailAddress(String emailAddress) {
@@ -25,7 +25,7 @@ public class EmailAddress implements ValueObject {
     }
 
 
-    private void setEmailAddress(String emailAddress) {
+    public void setEmailAddress(String emailAddress) {
 
         this.emailAddress = emailAddress;
 

@@ -17,7 +17,7 @@ public class CreatedAt implements ValueObject {
         this.createdAt = createdAt;
     }
 
-    protected CreatedAt() {
+    public CreatedAt() {
     }
 
 
@@ -25,6 +25,9 @@ public class CreatedAt implements ValueObject {
         return createdAt;
     }
 
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
 
     @Override
     public boolean equals(Object o) {

@@ -1,9 +1,9 @@
 package com.remlists.user.write.infrastructure.spring.springData.impl;
 
-import com.remlists.shared.domain.valueObjects.ValueObject;
 import com.remlists.shared.infrastructure.jpa.valueObjects.IdJPA;
-import com.remlists.user.domain.repository.RoleRepository;
 import com.remlists.user.write.infrastructure.jpa.entities.RoleJPA;
+import com.remlists.user.write.infrastructure.jpa.repository.RoleRepositoryJPA;
+import com.remlists.user.write.infrastructure.jpa.valueObjects.RoleNameJPA;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -24,18 +24,18 @@ import static com.remlists.user.write.infrastructure.spring.BeanNames.Infrastruc
 @Repository(roleWriteDataCustomRepositoryImpl)
 @Transactional(transactionManagerUserWrite)
 public class RoleWriteDataCustomRepositoryImpl extends SimpleJpaRepository<RoleJPA, IdJPA>
-                                               implements RoleRepository<RoleJPA, IdJPA>{
+                                               implements RoleRepositoryJPA {
 
 
     private static final Logger LOG = LoggerFactory.getLogger(UserWriteDataCustomRepositoryImpl.class);
 
 
-    private RoleRepository repository;
+    private RoleRepositoryJPA repository;
     private final EntityManager em;
 
 
     public RoleWriteDataCustomRepositoryImpl(@Qualifier(entityManagerUserWrite) EntityManager em,
-                                             @Qualifier(roleWriteDataRepository) RoleRepository repository
+                                             @Qualifier(roleWriteDataRepository) RoleRepositoryJPA repository
     ) {
 
         super(RoleJPA.class, em);
@@ -46,14 +46,16 @@ public class RoleWriteDataCustomRepositoryImpl extends SimpleJpaRepository<RoleJ
 
 
 
+
     @Override
-    public <VO extends ValueObject> Optional<RoleJPA> findByRoleName(VO role) {
-        return repository.findByRoleName(role);
+    public Optional<RoleJPA> findByRoleName(RoleNameJPA roleName) {
+        return repository.findByRoleName(roleName);
+
     }
 
     @Override
-    public <VO extends ValueObject> Set<RoleJPA> findByRoleNameIn(VO... roles) {
-        return repository.findByRoleNameIn(roles);
-    }
+    public Set<RoleJPA> findByRoleNameIn(RoleNameJPA... rolesName) {
+        return repository.findByRoleNameIn(rolesName);
 
+    }
 }

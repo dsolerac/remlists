@@ -22,7 +22,7 @@ public class CreatedAtJPA implements ValueObject {
     }
 
 
-    protected CreatedAtJPA() {
+    public CreatedAtJPA() {
     }
 
 

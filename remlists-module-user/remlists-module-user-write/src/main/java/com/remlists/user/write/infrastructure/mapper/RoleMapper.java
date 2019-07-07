@@ -1,31 +1,21 @@
 package com.remlists.user.write.infrastructure.mapper;
 
-import com.remlists.shared.domain.valueObjects.ValueObject;
 import com.remlists.shared.infrastructure.jpa.valueObjects.IdJPA;
 import com.remlists.shared.infrastructure.mapper.MapperBase;
 import com.remlists.user.domain.entities.Role;
-import com.remlists.user.domain.entities.User;
 import com.remlists.user.domain.valueObjects.RoleName;
 import com.remlists.user.write.infrastructure.jpa.entities.RoleJPA;
-import com.remlists.user.write.infrastructure.jpa.entities.UserJPA;
-import com.remlists.user.write.infrastructure.jpa.entities.UserRolesJPA;
 import com.remlists.user.write.infrastructure.jpa.valueObjects.RoleNameJPA;
-import org.h2.engine.Setting;
 import org.modelmapper.ModelMapper;
-import org.modelmapper.TypeMap;
 import org.modelmapper.TypeToken;
-import org.modelmapper.spi.MappingContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-import javax.persistence.Converter;
-import javax.persistence.Tuple;
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.List;
+import java.util.Set;
 
 import static com.remlists.user.write.infrastructure.spring.BeanNames.Infrastructure.Spring.Component.Mapper.roleMapperWrite;
-import static com.remlists.user.write.infrastructure.spring.BeanNames.Infrastructure.Spring.Component.Mapper.userMapperWrite;
 
 
 @Component(roleMapperWrite)
@@ -34,6 +24,7 @@ public class RoleMapper extends MapperBase {
     private Logger LOG = LoggerFactory.getLogger(RoleMapper.class);
 
 
+    private RoleMapperStruct mstruct;
 
     private ModelMapper mapper;
 
@@ -53,70 +44,49 @@ public class RoleMapper extends MapperBase {
 
 
 
-    public RoleNameJPA roleNameToRoleNameJPA(RoleName roleName){
 
-        return mapper.map(roleName, RoleNameJPA.class);
 
+    public Set<RoleNameJPA> rolesNameToRolesNameJPA( RoleName... rolesName ){
+
+        Set<RoleNameJPA> rolesNameJPA = mstruct.INSTANCE.rolesNameToRolesNameJPA(Set.of((RoleName [])rolesName));
+
+        return rolesNameJPA;
     }
 
-    public Optional<Role> roleJPAToRole(Optional<RoleJPA> roleJPA){
-
-        if(roleJPA.isEmpty())
-            return Optional.empty();
-
-        return  Optional.of( mapper.map(roleJPA.orElseThrow(), Role.class) );
-    }
-
-
-    public Set<RoleNameJPA> rolesNameToRolesNameJPA( Set<?> rolesName ){
-        return iterableEntitiesToIterableEntitiesJPA2( rolesName, new TypeToken<Set<RoleNameJPA>>() {}.getType());
-    }
 
     public Set<Role> rolesJPAToRoles(Set<RoleJPA> rolesJPA){
 
-        Set<Role> roles = new HashSet<>();
+        Set<Role> roles = mstruct.INSTANCE.rolesJPAToRoles(rolesJPA);
 
+/*        Set roles = new HashSet();
 
-        Set<UserJPA> usersJpa;
-        Set<User> users = new HashSet<>();
-
+        Set<UserRolesJPA> userRolesJPAS;
+        UserJPA userJPA;
         Role role;
+        User user;
         for (RoleJPA roleJPA: rolesJPA) {
 
-            LOG.info("@@@ 1 -->" + roleJPA);
+            role = mstruct.INSTANCE.roleJPAToRole(roleJPA);
 
-            usersJpa=roleJPA.getUsers().stream()
-                    .map(UserRolesJPA::getUser)
-                    .peek(x->x.setRoles(Set.of()))
-                    .collect(Collectors.toSet());
+            userRolesJPAS = roleJPA.getUsers();
 
 
-            mapper.createTypeMap( UserJPA.class, User.class )
-//                     .addMappings(mapper -> mapper.map(x -> {return Set.of();}, User::setRoles ) )
-                     .addMappings(mapper -> mapper.skip(User::setRoles));
+            for (UserRolesJPA userRoleJPA: userRolesJPAS) {
 
+                userJPA = userRoleJPA.getUser();
 
-            for (UserJPA userJPA: usersJpa) {
+                user = mstruct.INSTANCE.userJPAToUser_withoutRoles(userJPA);
 
-                users.add((User) entityJPAToEntity2(userJPA, User.class));
+                role.setArrayUsers(user);
 
             }
 
-//            users = iterableEntitiesJPAToIterableEntities2(usersJpa, new TypeToken<Set<User>>() {}.getType());
-
-
-
-//            roleJPA.setUsers(null);
-            role = (Role) entityJPAToEntity2(roleJPA, Role.class);
-
-            role.setUsers(users);
             roles.add(role);
 
-        }
+        }*/
 
         return roles;
     }
-
 
 }
 

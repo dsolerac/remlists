@@ -4,26 +4,19 @@ import com.remlists.shared.infrastructure.jpa.valueObjects.IdJPA;
 import com.remlists.shared.infrastructure.mapper.MapperBase;
 import com.remlists.user.domain.entities.Role;
 import com.remlists.user.domain.entities.User;
-import com.remlists.user.domain.valueObjects.RoleName;
 import com.remlists.user.write.infrastructure.jpa.entities.RoleJPA;
 import com.remlists.user.write.infrastructure.jpa.entities.UserJPA;
-import com.remlists.user.write.infrastructure.jpa.entities.UserRolesJPA;
-import com.remlists.user.write.infrastructure.jpa.valueObjects.RoleNameJPA;
 import org.modelmapper.ModelMapper;
-import org.modelmapper.TypeMap;
 import org.modelmapper.TypeToken;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 import static com.remlists.user.write.infrastructure.spring.BeanNames.Infrastructure.Spring.Component.Mapper.userMapperWrite;
-import static com.remlists.user.write.infrastructure.spring.BeanNames.Infrastructure.Spring.transactionManagerUserWrite;
 
 
 @Component(userMapperWrite)
@@ -32,6 +25,7 @@ public class UserMapper extends MapperBase {
     private Logger LOG = LoggerFactory.getLogger(UserMapper.class);
 
 
+    private UserMapperStruct mstruct;
 
     private ModelMapper mapper;
 
@@ -54,42 +48,32 @@ public class UserMapper extends MapperBase {
     public Object entityToEntityJPA(Object entity) {
 
         if (!(entity instanceof User))
-            return new NoSuitableEntityException("This entity must be a User");
+            throw new NoSuitableEntityException("This entity must be a User");
 
         User user = (User) entity;
 
-        Set<RoleJPA> rolesJPA = null;
-        Set<Role> roles = null;
+        UserJPA userJPA = mstruct.INSTANCE.userToUserJPA_withoutRoles(user);
+        if (user.getRoles().isEmpty())
+            return userJPA;
 
 
-        if (!user.getRoles().isEmpty()){
+        Set<Role> roles = user.getRoles();
 
-            roles = user.getRoles();
+        RoleJPA roleJPA;
+        for (Role role: roles) {
 
-            rolesJPA = super.iterableEntitiesToIterableEntitiesJPA2(roles, new TypeToken<Set<RoleJPA>>() {}.getType() );
+            roleJPA = mstruct.INSTANCE.roleToRoleJPA(role);
 
-            user.setRoles(Set.of()); //Limpio la entidad para hacer el mapeo de la entidad User sin problemas,
-                                     //porque luego se los añadiré por medio del método addRole()
+            userJPA.addRole(roleJPA);
 
         }
 
-        TypeMap<UserJPA, User> userJPAUserTypeMap = mapper.createTypeMap(UserJPA.class, User.class)
-                    .addMappings(mapper -> mapper.skip(User::setRoles));
-
-
-        UserJPA userJPA = (UserJPA) super.<UserJPA, User>entityToEntityJPA2(user, UserJPA.class);
-
-        //En ese punto se meten los roles por medio del método addRole que mantiene las relaciones de muchos a muchos.
-        rolesJPA.stream().forEach(x -> userJPA.addRole(x));
-
-        //Se devuevle el objeto a su estado original para no alteralo.
-        user.setRoles(roles);
 
         return userJPA;
+
     }
 
     @Override
-    @Transactional(transactionManagerUserWrite)
     public Object entityJPAToEntity(Object entityJPA) {
 
         if (!(entityJPA instanceof UserJPA))
@@ -97,34 +81,28 @@ public class UserMapper extends MapperBase {
 
         UserJPA userJPA = (UserJPA)entityJPA;
 
-        User user = (User)super.<User, UserJPA>entityJPAToEntity2(userJPA, User.class);
+        if (userJPA.getRoles().isEmpty())
+            return mstruct.INSTANCE.userJPAToUser_withoutRoles(userJPA);
 
-        return user;
+        return mstruct.INSTANCE.userJPAToUser_withRoles(userJPA);
+
     }
 
 
     @Override
-    @Transactional(transactionManagerUserWrite)
     public Optional entityJPAToOptionalEntity(Optional entityJPA) {
 
-        UserJPA userJPA = (UserJPA) entityJPA.orElseThrow();
+        if(entityJPA.isEmpty())
+            return Optional.<User>empty();
 
-        Set<RoleJPA> rolesJPA = userJPA.getRoles().stream()
-                                                .map(UserRolesJPA::getRole)
-                                                .collect(Collectors.toSet());
+        UserJPA userJPA = (UserJPA) entityJPA.get();
 
-        mapper.getTypeMap(RoleJPA.class, Role.class)
-                .addMappings(mapper -> mapper.map(x -> {return Set.of();}, Role::setUsers ) )
-                .addMappings(mapper -> mapper.map(RoleJPA::getId, Role::setId) );
-
-        Set<Role> roles = super.<Role, RoleJPA>iterableEntitiesJPAToIterableEntities2(  rolesJPA,
-                                                                            new TypeToken<Set<Role>>() {}.getType());
+        User user = null;
+        if (userJPA.getRoles().isEmpty())
+            user = mstruct.INSTANCE.userJPAToUser_withoutRoles(userJPA);
 
 
-        Optional<User> user = super.<UserJPA, User>entityJPAToOptionalEntity2(entityJPA, User.class );
-        user.ifPresent(x -> x.setRoles(roles));
-
-        return user;
+        return Optional.<User>of(user);
 
     }
 
@@ -138,7 +116,7 @@ public class UserMapper extends MapperBase {
 
 //    -------------
 
-    //TODO: si funciona moverlo a una excepción de domnio
+    //TODO: si funciona moverlo a una excepción de dominio
     private class NoSuitableEntityException extends RuntimeException {
         public NoSuitableEntityException(String s) {
             super(s);

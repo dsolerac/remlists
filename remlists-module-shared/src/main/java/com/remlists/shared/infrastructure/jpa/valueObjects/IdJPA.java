@@ -16,7 +16,7 @@ public final class IdJPA implements ValueObject {
     @Column(name = "id", columnDefinition = "uuid")
     private UUID uuid;
 
-    protected IdJPA() {
+    public IdJPA() {
     }
 
     public IdJPA(UUID uuid) {

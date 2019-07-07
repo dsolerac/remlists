@@ -17,7 +17,7 @@ public class UpdatedAt implements ValueObject {
         this.updatedAt = updatedAt;
     }
 
-    protected UpdatedAt() {
+    public UpdatedAt() {
     }
 
 
@@ -25,6 +25,9 @@ public class UpdatedAt implements ValueObject {
         return updatedAt;
     }
 
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
 
     @Override
     public boolean equals(Object o) {

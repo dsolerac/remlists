@@ -53,8 +53,8 @@ public interface BeanNames {
                 String userWriteDataCustomRepositoryImpl = "userWriteDataCustomRepositoryImpl";
                 String roleWriteDataCustomRepositoryImpl = "roleWriteDataCustomRepositoryImpl";
 
-                String userWriteRepositoryJPA = "userWriteRepositoryJPA";
-                String roleWriteRepositoryJPA = "roleWriteRepositoryJPA";
+                String userWriteRepository = "userWriteRepository";
+                String roleWriteRepository = "roleWriteRepository";
 
             }
 

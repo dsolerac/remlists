@@ -2,15 +2,18 @@ package com.remlists.user.domain.repository;
 
 
 import com.remlists.shared.domain.repository.CrudRepository;
+import com.remlists.shared.domain.valueObjects.Id;
 import com.remlists.shared.domain.valueObjects.ValueObject;
+import com.remlists.user.domain.entities.Role;
+import com.remlists.user.domain.valueObjects.RoleName;
 
 import java.util.Optional;
 import java.util.Set;
 
 
-public interface RoleRepository<E, ID> extends CrudRepository<E, ID> {
+public interface RoleRepository extends CrudRepository<Role, Id> {
 
-    <VO extends ValueObject> Optional<E> findByRoleName(VO roleName);
-    <VO extends ValueObject> Set<E> findByRoleNameIn(VO... rolesName);
+    Optional<Role> findByRoleName(RoleName roleName);
+    Set<Role> findByRoleNameIn(RoleName... rolesName);
 
 }

@@ -1,4 +1,4 @@
-package com.remlists.shared.infrastructure.jpa.impl;
+package com.remlists.shared.infrastructure.repository.impl;
 
 import com.remlists.shared.domain.repository.CrudRepository;
 import com.remlists.shared.domain.valueObjects.Id;
@@ -9,20 +9,20 @@ import org.slf4j.LoggerFactory;
 import java.util.List;
 import java.util.Optional;
 
-public abstract class BaseRepositoryJPA<E,
+public abstract class RemListBaseRepository<E,
                                         ID extends Id,
                                         E_JPA,
                                         ID_JPA>{
 
-    private Logger LOG = LoggerFactory.getLogger(BaseRepositoryJPA.class);
+    private Logger LOG = LoggerFactory.getLogger(RemListBaseRepository.class);
 
 
     private CrudRepository<E_JPA,ID_JPA> repository;
     private MapperBase mapper;
 
 
-    public BaseRepositoryJPA( CrudRepository<E_JPA, ID_JPA> repository,
-                              MapperBase mapper) {
+    public RemListBaseRepository(CrudRepository<E_JPA, ID_JPA> repository,
+                                 MapperBase mapper) {
 
         this.mapper = mapper;
         this.repository = repository;

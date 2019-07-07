@@ -27,8 +27,10 @@ public class RoleJPA implements Serializable {
     @OneToMany(mappedBy = "role",
             orphanRemoval = true
     )
-    private Set<UserRolesJPA> users; // = new HashSet<>();
+    private Set<UserRolesJPA> users = new HashSet<>();
 
+
+//TODO: faltan los campos createdAt y updatedAt
 
     public RoleJPA() {
     }

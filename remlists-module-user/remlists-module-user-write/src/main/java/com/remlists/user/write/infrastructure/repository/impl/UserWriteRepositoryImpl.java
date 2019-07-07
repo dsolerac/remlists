@@ -1,8 +1,8 @@
-package com.remlists.user.write.infrastructure.jpa.impl;
+package com.remlists.user.write.infrastructure.repository.impl;
 
 import com.remlists.shared.domain.valueObjects.Id;
 import com.remlists.shared.domain.valueObjects.ValueObject;
-import com.remlists.shared.infrastructure.jpa.impl.BaseRepositoryJPA;
+import com.remlists.shared.infrastructure.repository.impl.RemListBaseRepository;
 import com.remlists.user.domain.entities.User;
 import com.remlists.user.domain.repository.UserRepository;
 import com.remlists.user.write.infrastructure.jpa.entities.UserJPA;
@@ -20,27 +20,27 @@ import java.util.Optional;
 
 import static com.remlists.user.write.infrastructure.spring.BeanNames.Infrastructure.Spring.Component.Mapper.userMapperWrite;
 import static com.remlists.user.write.infrastructure.spring.BeanNames.Infrastructure.Spring.Repository.userWriteDataCustomRepositoryImpl;
-import static com.remlists.user.write.infrastructure.spring.BeanNames.Infrastructure.Spring.Repository.userWriteRepositoryJPA;
+import static com.remlists.user.write.infrastructure.spring.BeanNames.Infrastructure.Spring.Repository.userWriteRepository;
 import static com.remlists.user.write.infrastructure.spring.BeanNames.Infrastructure.Spring.transactionManagerUserWrite;
 
 
-@Repository(userWriteRepositoryJPA)
+@Repository(userWriteRepository)
 @Transactional(transactionManagerUserWrite)
-public class UserWriteRepositoryJPAImpl extends BaseRepositoryJPA<User,
+public class UserWriteRepositoryImpl extends RemListBaseRepository<User,
                                                              Id,
                                                              UserJPA,
                                                              IdJPA>
                                         implements UserRepository<User, Id> {
 
-    private Logger LOG = LoggerFactory.getLogger(UserWriteRepositoryJPAImpl.class);
+    private Logger LOG = LoggerFactory.getLogger(UserWriteRepositoryImpl.class);
 
 
     private UserRepository repository;
     private UserMapper mapper;
 
 
-    public UserWriteRepositoryJPAImpl( @Qualifier(userWriteDataCustomRepositoryImpl) UserRepository repository,
-                                       @Qualifier(userMapperWrite) UserMapper mapper) {
+    public UserWriteRepositoryImpl(@Qualifier(userWriteDataCustomRepositoryImpl) UserRepository repository,
+                                   @Qualifier(userMapperWrite) UserMapper mapper) {
 
         super( repository, mapper );
 

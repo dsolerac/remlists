@@ -3,6 +3,8 @@ package com.remlists.user.domain.entities;
 import com.remlists.shared.domain.valueObjects.Id;
 import com.remlists.user.domain.valueObjects.*;
 import org.junit.jupiter.api.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
@@ -17,6 +19,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 @Tag("entity")
 @DisplayName("Create user entity tests")
 class UserTest {
+
+    private Logger LOG = LoggerFactory.getLogger(UserTest.class);
+
 
     private Validator validator;
 
@@ -244,6 +249,8 @@ class UserTest {
 
             //Then
             Set<ConstraintViolation<User>> violations = validator.validate(user);
+            LOG.info("Create an user without roles can not be possible: " + violations);
+            System.out.println("Create an user without roles can not be possible: " + violations);
             assertThat(violations.isEmpty()).isFalse();
 
 

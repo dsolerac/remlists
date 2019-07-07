@@ -25,7 +25,11 @@ public class Role implements Serializable {
 
     private Set<User> users;
 
+
+
+
     public Role() {
+        this.users = new HashSet<>();
     }
 
     public Role(Id id, @Valid RoleName role) {
@@ -33,9 +37,10 @@ public class Role implements Serializable {
         this.role = role;
 
         this.users = new HashSet<>();
-
-
     }
+
+
+
 
     public Id getId() {
         return id;
@@ -76,10 +81,6 @@ public class Role implements Serializable {
     //------ Domain logic -----------------
 
 
-    public boolean sameIdentityAs(Role other) {
-        return equals(other);
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -109,8 +110,19 @@ public class Role implements Serializable {
                 "id=" + id +
                 ", role=" + role +
                 ", description=" + description +
-//                ", users=[left intentionally in blank]" + //users +
-                ", users=" + users.size() +
+                ", users=" + users +
                 '}';
     }
+
+
+    /*    @Override
+    public String toString() {
+        return "Role{" +
+                "id=" + id +
+                ", role=" + role +
+                ", description=" + description +
+//                ", users=[left intentionally in blank]" + //users +
+                ", users=" + (users!=null?users.size():"0") +
+                '}';
+    }*/
 }

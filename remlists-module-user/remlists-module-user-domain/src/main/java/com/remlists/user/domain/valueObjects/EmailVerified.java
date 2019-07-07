@@ -18,6 +18,15 @@ public class EmailVerified implements ValueObject {
     public EmailVerified() {
     }
 
+
+    public Boolean getVerified() {
+        return verified;
+    }
+
+    public void setVerified(Boolean verified) {
+        this.verified = verified;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

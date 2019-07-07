@@ -8,7 +8,7 @@ import com.remlists.list.write.infrastructure.jpa.valueObjects.RemListNameJPA;
 import com.remlists.list.write.infrastructure.mapper.RemListMapper;
 import com.remlists.shared.domain.valueObjects.Id;
 import com.remlists.shared.domain.valueObjects.ValueObject;
-import com.remlists.shared.infrastructure.jpa.impl.BaseRepositoryJPA;
+import com.remlists.shared.infrastructure.repository.impl.RemListBaseRepository;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,7 +23,7 @@ import static com.remlists.list.write.infrastructure.spring.BeanNames.Infrastruc
 
 @Repository(listWriteRepositoryJPA)
 @Transactional(transactionManagerListWrite)
-public class RemListRepositoryJPAImpl extends BaseRepositoryJPA< RemList,
+public class RemListRepositoryImplRemList extends RemListBaseRepository< RemList,
                                                                  Id,
                                                                  RemListJPA,
                                                                  IdJPA>
@@ -33,8 +33,8 @@ public class RemListRepositoryJPAImpl extends BaseRepositoryJPA< RemList,
     private RemListMapper mapper;
 
 
-    public RemListRepositoryJPAImpl(@Qualifier(remListDataCustomRepositoryImpl) RemListRepository repository,
-                                    @Qualifier(remListMapperWrite) RemListMapper mapper) {
+    public RemListRepositoryImplRemList(@Qualifier(remListDataCustomRepositoryImpl) RemListRepository repository,
+                                        @Qualifier(remListMapperWrite) RemListMapper mapper) {
 
         super( repository, mapper );
 

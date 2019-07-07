@@ -25,7 +25,7 @@ public class ShortName implements ValueObject {
         this.setShortName(shortName);
     }
 
-    protected ShortName() {
+    public ShortName() {
     }
 
 
@@ -34,7 +34,7 @@ public class ShortName implements ValueObject {
     }
 
 
-    private void setShortName(String shortName) {
+    public void setShortName(String shortName) {
 
         this.shortName = shortName;
     }

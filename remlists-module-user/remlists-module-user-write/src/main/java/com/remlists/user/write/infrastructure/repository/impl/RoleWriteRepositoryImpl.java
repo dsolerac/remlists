@@ -1,17 +1,16 @@
-package com.remlists.user.write.infrastructure.jpa.impl;
+package com.remlists.user.write.infrastructure.repository.impl;
 
 import com.remlists.shared.domain.valueObjects.Id;
-import com.remlists.shared.domain.valueObjects.ValueObject;
-import com.remlists.shared.infrastructure.jpa.impl.BaseRepositoryJPA;
+import com.remlists.shared.infrastructure.repository.impl.RemListBaseRepository;
 import com.remlists.shared.infrastructure.jpa.valueObjects.IdJPA;
 import com.remlists.user.domain.entities.Role;
 import com.remlists.user.domain.repository.RoleRepository;
 import com.remlists.user.domain.valueObjects.RoleName;
 import com.remlists.user.write.infrastructure.jpa.entities.RoleJPA;
+import com.remlists.user.write.infrastructure.jpa.repository.RoleRepositoryJPA;
 import com.remlists.user.write.infrastructure.jpa.valueObjects.RoleNameJPA;
 import com.remlists.user.write.infrastructure.mapper.RoleMapper;
 import com.remlists.user.write.infrastructure.mapper.RoleMapperStruct;
-import org.modelmapper.TypeToken;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -23,28 +22,31 @@ import java.util.Set;
 
 import static com.remlists.user.write.infrastructure.spring.BeanNames.Infrastructure.Spring.Component.Mapper.roleMapperWrite;
 import static com.remlists.user.write.infrastructure.spring.BeanNames.Infrastructure.Spring.Repository.roleWriteDataCustomRepositoryImpl;
-import static com.remlists.user.write.infrastructure.spring.BeanNames.Infrastructure.Spring.Repository.roleWriteRepositoryJPA;
+import static com.remlists.user.write.infrastructure.spring.BeanNames.Infrastructure.Spring.Repository.roleWriteRepository;
 import static com.remlists.user.write.infrastructure.spring.BeanNames.Infrastructure.Spring.transactionManagerUserWrite;
 
 
-@Repository(roleWriteRepositoryJPA)
+@Repository(roleWriteRepository)
 @Transactional(transactionManagerUserWrite)
-public class RoleWriteRepositoryJPAImpl extends BaseRepositoryJPA<Role,
+
+public class RoleWriteRepositoryImpl extends RemListBaseRepository<Role,
                                                              Id,
                                                              RoleJPA,
                                                              IdJPA>
-                                        implements RoleRepository<Role, Id> {
-
-    private Logger LOG = LoggerFactory.getLogger(RoleWriteRepositoryJPAImpl.class);
+                                        implements RoleRepository {
 
 
-    private RoleRepository repository;
+        private Logger LOG = LoggerFactory.getLogger(RoleWriteRepositoryImpl.class);
+
+
+    private RoleRepositoryJPA repository;
     private RoleMapper mapper;
 
     private RoleMapperStruct mstruct;
 
-    public RoleWriteRepositoryJPAImpl(@Qualifier(roleWriteDataCustomRepositoryImpl) RoleRepository repository,
-                                      @Qualifier(roleMapperWrite) RoleMapper mapper) {
+    public RoleWriteRepositoryImpl(@Qualifier(roleWriteDataCustomRepositoryImpl) RoleRepositoryJPA repository,
+                                   @Qualifier(roleMapperWrite) RoleMapper mapper
+    ) {
 
         super( repository, mapper );
 
@@ -55,11 +57,9 @@ public class RoleWriteRepositoryJPAImpl extends BaseRepositoryJPA<Role,
 
 
     @Override
-    public <VO extends ValueObject> Optional<Role> findByRoleName(VO roleName) {
+    public Optional<Role> findByRoleName(RoleName roleName) {
 
-        RoleNameJPA roleNameJPA =  mstruct.INSTANCE.roleNameToRoleNameJPA((RoleName) roleName);
-
-//        RoleNameJPA roleNameJPA = mapper.getMapper().map(roleName, RoleNameJPA.class);
+        RoleNameJPA roleNameJPA =  mstruct.INSTANCE.roleNameToRoleNameJPA( roleName );
 
         Optional<RoleJPA> byRole = repository.findByRoleName(roleNameJPA);
 
@@ -67,26 +67,22 @@ public class RoleWriteRepositoryJPAImpl extends BaseRepositoryJPA<Role,
         if(byRole.isEmpty())
             return Optional.empty();
 
-//        return  Optional.of( mapper.getMapper().map(byRole.orElseThrow(), Role.class) );
 
         return  Optional.of(   mstruct.INSTANCE.roleJPAToRole( byRole.orElseThrow() ) );
 
     }
 
     @Override
-    public <VO extends ValueObject> Set<Role> findByRoleNameIn(VO... rolesName) {
+    public  Set<Role> findByRoleNameIn(RoleName... rolesName) {
 
+        Set<RoleNameJPA> rolesNameJPA = mapper.rolesNameToRolesNameJPA(rolesName);
 
-//        mstruct.INSTANCE.rolesNameToRolesNameJPA(Set.<RoleName>of(rolesName));
-        Set<RoleNameJPA> rolesNameJPA = mstruct.INSTANCE.rolesNameToRolesNameJPA(Set.of((RoleName [])rolesName));
+        Set<RoleJPA> allByRoleName = repository.findByRoleNameIn( rolesNameJPA.toArray(new RoleNameJPA[rolesNameJPA.size()]) );
 
-//        Set<RoleNameJPA> rolesNameJPA = mapper.rolesNameToRolesNameJPA( Set.of(rolesName));
+        Set<Role> roles = mapper.rolesJPAToRoles(allByRoleName);
 
-        Set<RoleJPA> allByRoleName = repository.findByRoleNameIn(rolesNameJPA.toArray(new RoleNameJPA[rolesNameJPA.size()]));
+        return roles;
 
-//        return mapper.iterableEntitiesJPAToIterableEntities2(allByRoleName, new TypeToken<Set<Role>>() {}.getType());
-
-        return mapper.rolesJPAToRoles(allByRoleName);
     }
 
 }

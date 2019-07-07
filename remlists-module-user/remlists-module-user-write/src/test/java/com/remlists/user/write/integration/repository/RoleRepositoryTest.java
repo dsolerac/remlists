@@ -31,7 +31,7 @@ public class RoleRepositoryTest {
     private Logger LOG = LoggerFactory.getLogger(RoleRepositoryTest.class);
 
     @Autowired
-    @Qualifier("roleWriteRepositoryJPA")
+    @Qualifier("roleWriteRepository")
     private RoleRepository repo;
 
 
@@ -74,12 +74,9 @@ public class RoleRepositoryTest {
             Set allByRoleName = repo.findByRoleNameIn(name1, name2);
 
 
-
-
             //Then
-//            Optional byId = repo.findById(id_role);
-//            Assertions.assertThat(byId).isNotEmpty();
-//            Assertions.assertThat(byId.get()).isEqualTo(role);
+            Assertions.assertThat(allByRoleName).hasSize(2);
+
 
 
         }

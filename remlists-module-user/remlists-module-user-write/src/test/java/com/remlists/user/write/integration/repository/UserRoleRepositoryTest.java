@@ -31,11 +31,11 @@ public class UserRoleRepositoryTest {
     private Logger LOG = LoggerFactory.getLogger(UserRoleRepositoryTest.class);
 
     @Autowired
-    @Qualifier("userWriteRepositoryJPA")
+    @Qualifier("userWriteRepository")
     private UserRepository userRepo;
 
     @Autowired
-    @Qualifier("roleWriteRepositoryJPA")
+    @Qualifier("roleWriteRepository")
     private RoleRepository roleRepo;
 
 

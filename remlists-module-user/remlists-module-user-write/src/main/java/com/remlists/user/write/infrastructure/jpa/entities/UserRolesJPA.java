@@ -34,7 +34,7 @@ public class UserRolesJPA implements Serializable {
         createdAt = new CreatedAtJPA(LocalDateTime.now());
     }
 
-    protected UserRolesJPA() {
+    public UserRolesJPA() {
         createdAt = new CreatedAtJPA(LocalDateTime.now());
     }
 

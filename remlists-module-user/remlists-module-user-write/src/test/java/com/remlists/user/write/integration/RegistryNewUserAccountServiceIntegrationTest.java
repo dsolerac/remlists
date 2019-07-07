@@ -37,7 +37,7 @@ public final class RegistryNewUserAccountServiceIntegrationTest {
 
 
     @Autowired
-    @Qualifier("userWriteRepositoryJPA")
+    @Qualifier("userWriteRepository")
     private UserRepository<User, Id> userRepository;
 
 

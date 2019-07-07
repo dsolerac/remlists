@@ -19,14 +19,14 @@ public class Password implements ValueObject {
         this.password = password;
     }
 
-    private Password() {
+    public Password() {
     }
 
     public String getPassword() {
         return password;
     }
 
-    private void setPassword(String password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 

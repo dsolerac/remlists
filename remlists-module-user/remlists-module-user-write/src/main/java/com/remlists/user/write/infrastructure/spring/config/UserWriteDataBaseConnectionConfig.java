@@ -30,7 +30,7 @@ import static com.remlists.user.write.infrastructure.spring.BeanNames.Infrastruc
 @Configuration
 @EnableJpaRepositories(
         basePackages = {"com.remlists.user.write.infrastructure.spring.springData",
-                        "com.remlists.user.write.infrastructure.jpa.impl"},
+                "com.remlists.user.write.infrastructure.repository.impl"},
         entityManagerFactoryRef = entityManagerUserWrite,
         transactionManagerRef = transactionManagerUserWrite
 )

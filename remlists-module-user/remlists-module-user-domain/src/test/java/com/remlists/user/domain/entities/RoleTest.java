@@ -111,7 +111,7 @@ public class RoleTest {
             violations = validator.validate(role2);
             assertThat(violations.isEmpty()).isTrue();
 
-            assertThat(role1.sameIdentityAs(role2)).isTrue();
+            assertThat(role1.equals(role2)).isTrue();
         }
 
         @Test
@@ -138,7 +138,7 @@ public class RoleTest {
             violations = validator.validate(role2);
             assertThat(violations.isEmpty()).isTrue();
 
-            assertThat(role1.sameIdentityAs(role2)).isFalse();
+            assertThat(role1.equals(role2)).isFalse();
         }
 
         @Test

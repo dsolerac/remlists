@@ -41,16 +41,16 @@ public class UserJPA implements Serializable {
     @Embedded
     private PasswordJPA password;
 
-
-
     @OneToMany(mappedBy = "user",
             fetch = FetchType.LAZY, //Son pocos los roles que tiene cada usuario.
             cascade = CascadeType.ALL,
             orphanRemoval = true)
-    private Set<UserRolesJPA> roles; // = new HashSet<>();
+    private Set<UserRolesJPA> roles = new HashSet<>();
 
 
-    protected UserJPA() {
+
+
+    public UserJPA() {
     }
 
     public UserJPA(IdJPA id, ShortNameJPA shortName, EmailAddressJPA email) {
@@ -59,15 +59,15 @@ public class UserJPA implements Serializable {
         this.email = email;
     }
 
-    protected void setId(IdJPA id) {
+    public void setId(IdJPA id) {
         this.id = id;
     }
 
-    protected void setShortName(ShortNameJPA shortName) {
+    public void setShortName(ShortNameJPA shortName) {
         this.shortName = shortName;
     }
 
-    protected void setEmail(EmailAddressJPA email) {
+    public void setEmail(EmailAddressJPA email) {
         this.email = email;
     }
 
@@ -115,7 +115,19 @@ public class UserJPA implements Serializable {
         this.roles = user;
     }
 
-/*    public void setArrayRoles(List<RoleJPA> roles) {
+    public PasswordJPA getPassword() {
+        return password;
+    }
+
+    public void setPassword(PasswordJPA password) {
+        this.password = password;
+    }
+
+
+
+
+
+    /*    public void setArrayRoles(List<RoleJPA> roles) {
 
         userRoles = roles.stream()
                                 .map(RoleJPA::getId)

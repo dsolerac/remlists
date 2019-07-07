@@ -19,7 +19,7 @@ public class EmailAddressJPA implements ValueObject {
     @Column(name = "email")
     private String emailAddress;
 
-    protected EmailAddressJPA() {
+    public EmailAddressJPA() {
     }
 
     public EmailAddressJPA(String emailAddress) {
@@ -27,7 +27,7 @@ public class EmailAddressJPA implements ValueObject {
     }
 
 
-    private void setEmailAddress(String emailAddress) {
+    public void setEmailAddress(String emailAddress) {
 
         this.emailAddress = emailAddress;
 

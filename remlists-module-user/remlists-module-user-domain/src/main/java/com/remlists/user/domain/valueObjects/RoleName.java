@@ -32,6 +32,9 @@ public class RoleName implements ValueObject {
         return role;
     }
 
+    public void setRole(String role) {
+        this.role = role;
+    }
 
     public boolean sameValueAs(ShortName other) {
         return role.equals(other.getShortName());

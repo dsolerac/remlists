@@ -12,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -38,13 +39,14 @@ public class User implements Serializable {
     @Valid
     private Password password;
 
-    @NotNull
+    @NotEmpty(message = "{User.roles.NotEmpty}")
     private Set<Role> roles;
 
 
 
 
-    private User() {
+    public User() {
+        this.roles = new HashSet<>();
     }
 
     public User(Id id, ShortName shortName, EmailAddress email, Password password) {
@@ -60,6 +62,22 @@ public class User implements Serializable {
         this.roles = new HashSet<>();
     }
 
+
+    public void setId(Id id) {
+        this.id = id;
+    }
+
+    public void setShortName(ShortName shortName) {
+        this.shortName = shortName;
+    }
+
+    public void setEmail(EmailAddress email) {
+        this.email = email;
+    }
+
+    public void setCreatedAt(CreatedAt createdAt) {
+        this.createdAt = createdAt;
+    }
 
     public ShortName getShortName() {
         return shortName;
@@ -86,17 +104,21 @@ public class User implements Serializable {
         this.roles = Set.of(roles);
     }
 
+
     public CreatedAt getCreatedAt() {
         return createdAt;
     }
+
 
     public UpdatedAt getUpdatedAt() {
         return updatedAt;
     }
 
+
     public EmailVerified getVerified() {
         return verified;
     }
+
 
     public void setUpdatedAt(UpdatedAt updatedAt) {
         this.updatedAt = updatedAt;
@@ -105,6 +127,7 @@ public class User implements Serializable {
     public void setVerified(EmailVerified verified) {
         this.verified = verified;
     }
+
 
     public Password getPassword() {
         return password;
@@ -131,7 +154,7 @@ public class User implements Serializable {
                 ", updatedAt=" + updatedAt +
                 ", verified=" + verified +
                 ", password=" + password +
-                ", roles=" + roles.size() +
+                ", roles=" + (roles != null? roles.size(): "0")+
                 '}';
     }
 

@@ -3,6 +3,7 @@ package com.remlists.user.write.integration.repository;
 import com.remlists.shared.domain.valueObjects.Id;
 import com.remlists.user.domain.entities.Role;
 import com.remlists.user.domain.entities.User;
+import com.remlists.user.domain.repository.RoleRepository;
 import com.remlists.user.domain.repository.UserRepository;
 import com.remlists.user.domain.valueObjects.*;
 import org.assertj.core.api.Assertions;
@@ -29,8 +30,12 @@ public class UserRepositoryTest {
     private Logger LOG = LoggerFactory.getLogger(UserRepositoryTest.class);
 
     @Autowired
-    @Qualifier("userWriteRepositoryJPA")
-    private UserRepository repo;
+    @Qualifier("userWriteRepository")
+    private UserRepository userRepo;
+
+    @Autowired
+    @Qualifier("roleWriteRepository")
+    private RoleRepository roleRepo;
 
 
     @DisplayName("VALID TESTS")
@@ -50,12 +55,11 @@ public class UserRepositoryTest {
             User user = new User(id, sname, email,password);
 
             //When
-            repo.save(user);
+            userRepo.save(user);
 
             //Then
-            Optional byId = repo.findById(id);
+            Optional byId = userRepo.findById(id);
             Assertions.assertThat(byId.get()).isEqualTo(user);
-
 
         }
 
@@ -71,10 +75,10 @@ public class UserRepositoryTest {
 
             User user = new User(id, sname, email,password);
 
-            repo.save(user);
+            userRepo.save(user);
 
             //When
-            Optional<User> userFound = repo.findByShortName(sname);
+            Optional<User> userFound = userRepo.findByShortName(sname);
 
             //Then
             Assertions.assertThat(userFound).isNotEmpty();
@@ -94,10 +98,10 @@ public class UserRepositoryTest {
 
             User user = new User(id, sname, email,password);
 
-            repo.save(user);
+            userRepo.save(user);
 
             //When
-            Optional<User> userFound = repo.findByEmail(email);
+            Optional<User> userFound = userRepo.findByEmail(email);
 
             //Then
             Assertions.assertThat(userFound).isNotEmpty();
@@ -117,10 +121,10 @@ public class UserRepositoryTest {
 
             User user = new User(id, sname, email,password);
 
-            repo.save(user);
+            userRepo.save(user);
 
             //When
-            Optional<User> userFound = repo.findByEmailOrShortName(email, sname);
+            Optional<User> userFound = userRepo.findByEmailOrShortName(email, sname);
 
             //Then
             Assertions.assertThat(userFound).isNotEmpty();
@@ -148,11 +152,14 @@ public class UserRepositoryTest {
             role.setDescription(description);
 
             //When
-            user.setArrayRoles(role);
-            repo.save(user);
+            Role rolePersisted = roleRepo.save(role);
+
+            user.setArrayRoles(rolePersisted);
+            User userPersisted = (User) userRepo.save(user);
 
             //Then
-
+            Assertions.assertThat( userPersisted.getRoles() ).containsExactly(role);
+            Assertions.assertThat( userPersisted ).isEqualTo(user);
 
         }
 
