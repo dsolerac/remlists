@@ -16,6 +16,7 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 
+import javax.servlet.http.HttpSession;
 import java.util.UUID;
 
 @Tag("IntegrationTest")
@@ -67,6 +68,7 @@ public class CreateUserAccountRegistryRestTest {
                                 "ccm",
                                 "ccm@g.com",
                                 "pass");
+
             //When
 
             ResponseEntity<HttpEntity> response =  restTemplate.postForEntity(BASE_URL + port + "/api/users",
@@ -80,6 +82,7 @@ public class CreateUserAccountRegistryRestTest {
             HttpEntity<UserResource> responseBody = response.getBody();
 
             System.out.println("### -->" + responseBody);
+
             //Then
 //            assertThat();
 
@@ -102,6 +105,8 @@ public class CreateUserAccountRegistryRestTest {
             //Then
 //            assertThat();
         }
+
+
     }
 
 }

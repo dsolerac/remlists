@@ -48,7 +48,7 @@ public class UserAccountRegistryController {
                                                               userModel.getEmailAddress(),
                                                               userModel.getPassword());
 
-        commandGateway.send(command).join();
+        commandGateway.send( command ).join();
 
         User user = new User(new Id(command.getUuid()),
                              new ShortName(command.getShortName()),
