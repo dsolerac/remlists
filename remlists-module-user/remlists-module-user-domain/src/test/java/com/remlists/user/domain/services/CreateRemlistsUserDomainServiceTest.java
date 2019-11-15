@@ -6,6 +6,7 @@ import com.remlists.user.domain.exceptions.EmailAddressAlreadyExistsException;
 import com.remlists.user.domain.exceptions.ShortNameAlreadyExistsException;
 import com.remlists.user.domain.repository.UserRepository;
 import com.remlists.user.domain.valueObjects.EmailAddress;
+import com.remlists.user.domain.valueObjects.Password;
 import com.remlists.user.domain.valueObjects.ShortName;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -42,7 +43,7 @@ class CreateRemlistsUserDomainServiceTest {
 
         //TODO: descomentar esto, solo está así por las pruebas debidas al fallo de spring data y los repositorios.
 
-/*
+
 
         @Test
         @DisplayName("Create valid user")
@@ -51,7 +52,9 @@ class CreateRemlistsUserDomainServiceTest {
             Id id = new Id(UUID.randomUUID());
             EmailAddress email = new EmailAddress("dsc@g.com");
             ShortName shortName = new ShortName("dsc");
-            User newUser = new User(id, shortName, email);
+            Password pass = new Password("pass");
+
+            User newUser = new User(id, shortName, email, pass);
 
 
             Mockito.when(userRepository.findByShortName(shortName)).thenReturn(Optional.empty());
@@ -76,7 +79,9 @@ class CreateRemlistsUserDomainServiceTest {
             Id id = new Id(UUID.randomUUID());
             EmailAddress email = new EmailAddress("dsc@g.com");
             ShortName shortName = new ShortName("dsc");
-            User newUser = new User(id, shortName, email);
+            Password pass = new Password("pass");
+
+            User newUser = new User(id, shortName, email, pass);
 
 
             Mockito.when(userRepository.findByShortName(shortName)).thenReturn(Optional.of(newUser));
@@ -104,7 +109,8 @@ class CreateRemlistsUserDomainServiceTest {
             Id id = new Id(UUID.randomUUID());
             EmailAddress email = new EmailAddress("dsc@g.com");
             ShortName shortName = new ShortName("dsc");
-            User newUser = new User(id, shortName, email);
+            Password pass = new Password("pass");
+            User newUser = new User(id, shortName, email, pass);
 
 
             Mockito.when(userRepository.findByEmail(email)).thenReturn(Optional.of(newUser));
@@ -121,7 +127,7 @@ class CreateRemlistsUserDomainServiceTest {
             Mockito.verify(userRepository, Mockito.times(1)).findByEmail(email);
 
         }
-*/
+
 
 
     }

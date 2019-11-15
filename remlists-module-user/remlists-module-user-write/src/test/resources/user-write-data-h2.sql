@@ -16,10 +16,10 @@ VALUES ('0cef9bdf-ca96-448d-b909-a4b2c388398e', 'psc@gm.com', 'psc', '2017-07-12
 -- ROLES
 truncate table write.roles;
 
-INSERT INTO write.roles (id, role, description) VALUES ('0782b374-1f4d-4996-9c82-757c583bc48c','USER', 'Generic user');
-INSERT INTO write.roles (id, role, description) VALUES ('a7320381-56c8-4453-8a9d-f4c0e9564908','USER_PREMIUM', 'Premium user');
-INSERT INTO write.roles (id, role, description) VALUES ('32d2a04f-6b53-4127-ae0c-6f8d582e97bc','USER_FREE', 'Free user');
-INSERT INTO write.roles (id, role, description) VALUES ('6fb06c31-7edd-4dd9-8c8a-5ab7bd1631c5','AMDIN', 'Admin user');
+INSERT INTO write.roles (id, role, description) VALUES ('0782b374-1f4d-4996-9c82-757c583bc48c','ROLE_USER', 'Generic user');
+INSERT INTO write.roles (id, role, description) VALUES ('a7320381-56c8-4453-8a9d-f4c0e9564908','ROLE_USER_PREMIUM', 'Premium user');
+INSERT INTO write.roles (id, role, description) VALUES ('32d2a04f-6b53-4127-ae0c-6f8d582e97bc','ROLE_USER_FREE', 'Free user');
+INSERT INTO write.roles (id, role, description) VALUES ('6fb06c31-7edd-4dd9-8c8a-5ab7bd1631c5','ROLE_AMDIN', 'Admin user');
 
 -- USER_ROLES
 truncate table write.user_roles;

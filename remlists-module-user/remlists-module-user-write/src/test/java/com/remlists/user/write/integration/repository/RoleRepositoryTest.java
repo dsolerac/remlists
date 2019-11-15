@@ -1,11 +1,11 @@
 package com.remlists.user.write.integration.repository;
 
 import com.remlists.shared.domain.valueObjects.Id;
-import com.remlists.shared.domain.valueObjects.ValueObject;
 import com.remlists.user.domain.entities.Role;
+import com.remlists.user.domain.entities.User;
 import com.remlists.user.domain.repository.RoleRepository;
-import com.remlists.user.domain.valueObjects.RoleDescription;
-import com.remlists.user.domain.valueObjects.RoleName;
+import com.remlists.user.domain.repository.UserRepository;
+import com.remlists.user.domain.valueObjects.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.junit.jupiter.api.DisplayName;
@@ -32,7 +32,14 @@ public class RoleRepositoryTest {
 
     @Autowired
     @Qualifier("roleWriteRepository")
-    private RoleRepository repo;
+    private RoleRepository roleRepo;
+
+
+    @Autowired
+    @Qualifier("userWriteRepository")
+    private UserRepository userRepo;
+
+
 
 
     @DisplayName("VALID TESTS")
@@ -52,12 +59,52 @@ public class RoleRepositoryTest {
             role.setDescription(description);
 
             //When
-            repo.save(role);
+            roleRepo.save(role);
 
             //Then
-            Optional byId = repo.findById(id_role);
+            Optional byId = roleRepo.findById(id_role);
             Assertions.assertThat(byId).isNotEmpty();
             Assertions.assertThat(byId.get()).isEqualTo(role);
+
+
+        }
+
+        @Test
+        @DisplayName("Check if exits a role ")
+        void checkIfExitsRole() {
+
+            //Given
+            Id id_role = new Id(UUID.randomUUID());
+            RoleName rname = new RoleName("ROLE_SUPER_VISOR3");
+            RoleDescription description = new RoleDescription("Rol de supervisor");
+
+            Role role = new Role(id_role, rname);
+            role.setDescription(description);
+
+//            roleRepo.save(role);
+
+
+            Id id_user = new Id(UUID.randomUUID());
+            ShortName name = new ShortName("name1");
+            EmailAddress email = new EmailAddress("name1@gg.com");
+            Password password = new Password("pass");
+
+            User user = new User(id_user, name, email, password );
+
+            user.setArrayRoles(role);
+//            userRepo.save(user);
+
+            role.setArrayUsers(user);
+            roleRepo.save(role);
+
+
+            //When
+            Optional<Role> byRoleName = roleRepo.findByRoleName(rname);
+
+            //Then
+            Assertions.assertThat(byRoleName).isNotEmpty();
+            Assertions.assertThat(byRoleName.get()).isEqualTo(role);
+
 
 
         }
@@ -67,11 +114,11 @@ public class RoleRepositoryTest {
         void checkIfExitsSeveralRoles() {
 
             //Given
-            RoleName name1 = new RoleName("USER");
-            RoleName name2 = new RoleName("USER_FREE");
+            RoleName name1 = new RoleName("ROLE_USER");
+            RoleName name2 = new RoleName("ROLE_USER_FREE");
 
             //When
-            Set allByRoleName = repo.findByRoleNameIn(name1, name2);
+            Set allByRoleName = roleRepo.findByRoleNameIn(name1, name2);
 
 
             //Then

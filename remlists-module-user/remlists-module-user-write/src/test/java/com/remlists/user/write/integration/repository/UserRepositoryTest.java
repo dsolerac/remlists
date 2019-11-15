@@ -145,7 +145,7 @@ public class UserRepositoryTest {
             User user = new User(id, sname, email,password);
 
             Id id_role = new Id(UUID.randomUUID());
-            RoleName rname = new RoleName("SUPER_VISOR");
+            RoleName rname = new RoleName("ROLE_SUPER_VISOR");
             RoleDescription description = new RoleDescription("Rol de supervisor");
 
             Role role = new Role(id_role, rname);
@@ -163,6 +163,38 @@ public class UserRepositoryTest {
 
         }
 
+        @Test
+        @DisplayName("find User with roles associated By Short Name And Email")
+        void findUserByShortNameAndEmailWithRolesAssociated(){
+
+            //Given
+            Id id = new Id(UUID.randomUUID());
+            ShortName sname = new ShortName("aaabb");
+            EmailAddress email = new EmailAddress("aaabb@gm.com");
+            Password password = new Password("pass");
+
+            User user = new User(id, sname, email,password);
+
+            Id id_role = new Id(UUID.randomUUID());
+            RoleName rname = new RoleName("ROLE_SUPER_VISOR2");
+            RoleDescription description = new RoleDescription("Rol de supervisor");
+
+            Role role = new Role(id_role, rname);
+            role.setDescription(description);
+
+            Role rolePersisted = roleRepo.save(role);
+
+            user.setArrayRoles(rolePersisted);
+            User userPersisted = (User) userRepo.save(user);
+
+            //When
+//            Optional<User> userFound = userRepo.findByEmailOrShortName(email, sname);
+            Optional<User> userFound = userRepo.findByShortName(sname);
+
+
+
+
+        }
 
     }
 

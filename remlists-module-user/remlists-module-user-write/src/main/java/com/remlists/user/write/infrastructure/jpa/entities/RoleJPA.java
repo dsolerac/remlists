@@ -25,7 +25,8 @@ public class RoleJPA implements Serializable {
     private RoleDescriptionJPA description;
 
     @OneToMany(mappedBy = "role",
-            orphanRemoval = true
+            orphanRemoval = true,
+            cascade = CascadeType.MERGE
     )
     private Set<UserRolesJPA> users = new HashSet<>();
 
@@ -88,6 +89,16 @@ public class RoleJPA implements Serializable {
         UserRolesJPA userRoles = new UserRolesJPA(user, this);
         this.users.add(userRoles);
         user.getRoles().add(userRoles);
+
+    }
+
+    public void addUsers(Set<UserJPA> users){
+
+        users.stream().forEach(this::addUser);
+//
+//        for (UserJPA user: users ){
+//            addUser(user);
+//        }
 
     }
 

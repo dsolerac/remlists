@@ -53,6 +53,13 @@ public interface RoleMapperStruct  {
     User userJPAToUser(UserJPA userJPA);
 
 
+    @Mappings({
+            @Mapping(source = "id.uuid", target = "id.uuid"),
+            @Mapping(source = "role.role", target = "roleName.role"),
+            @Mapping(source = "description.description", target = "description.description"),
+            @Mapping(target = "users", ignore = true)
+    })
+    RoleJPA roleToRoleJPA(Role role);
 
 
     /*==== NAMED ====*/
@@ -100,7 +107,7 @@ public interface RoleMapperStruct  {
     EmailVerified emailVerifiedToEmailVerifiedJPA(EmailVerifiedJPA emailVerifiedJPA);
     UpdatedAt updatedAtToUpdatedAtJPA(UpdatedAtJPA updatedAtJPA);
     CreatedAt createdAtToCreatedAtJPA(CreatedAtJPA createdAtJPA);
-    RoleNameJPA roleNameToRoleNameJPA(RoleName roleName);
+    RoleNameJPA RoleNameToRoleNameJPA(RoleName roleName);
 
 
 }

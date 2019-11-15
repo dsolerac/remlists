@@ -58,4 +58,5 @@ public class RoleWriteDataCustomRepositoryImpl extends SimpleJpaRepository<RoleJ
         return repository.findByRoleNameIn(rolesName);
 
     }
+
 }

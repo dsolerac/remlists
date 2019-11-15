@@ -5,11 +5,15 @@ import com.remlists.shared.domain.valueObjects.ValueObject;
 import com.remlists.shared.infrastructure.repository.impl.RemListBaseRepository;
 import com.remlists.user.domain.entities.User;
 import com.remlists.user.domain.repository.UserRepository;
+import com.remlists.user.domain.valueObjects.EmailAddress;
+import com.remlists.user.domain.valueObjects.ShortName;
 import com.remlists.user.write.infrastructure.jpa.entities.UserJPA;
+import com.remlists.user.write.infrastructure.jpa.repository.UserRepositoryJPA;
 import com.remlists.user.write.infrastructure.jpa.valueObjects.EmailAddressJPA;
 import com.remlists.shared.infrastructure.jpa.valueObjects.IdJPA;
 import com.remlists.user.write.infrastructure.jpa.valueObjects.ShortNameJPA;
 import com.remlists.user.write.infrastructure.mapper.UserMapper;
+import com.remlists.user.write.infrastructure.mapper.UserMapperStruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -30,16 +34,17 @@ public class UserWriteRepositoryImpl extends RemListBaseRepository<User,
                                                              Id,
                                                              UserJPA,
                                                              IdJPA>
-                                        implements UserRepository<User, Id> {
+                                        implements UserRepository {
 
     private Logger LOG = LoggerFactory.getLogger(UserWriteRepositoryImpl.class);
 
 
-    private UserRepository repository;
+    private UserRepositoryJPA repository;
     private UserMapper mapper;
 
+    private UserMapperStruct mstruct;
 
-    public UserWriteRepositoryImpl(@Qualifier(userWriteDataCustomRepositoryImpl) UserRepository repository,
+    public UserWriteRepositoryImpl(@Qualifier(userWriteDataCustomRepositoryImpl) UserRepositoryJPA repository,
                                    @Qualifier(userMapperWrite) UserMapper mapper) {
 
         super( repository, mapper );
@@ -51,6 +56,7 @@ public class UserWriteRepositoryImpl extends RemListBaseRepository<User,
 
 
 
+/*
     @Override
     public <VO extends ValueObject> Optional<User> findByShortName(VO username) {
 
@@ -93,5 +99,36 @@ public class UserWriteRepositoryImpl extends RemListBaseRepository<User,
 
         return  Optional.of( mapper.getMapper().map(userJPA.orElseThrow(), User.class) );
 
+    }
+*/
+
+
+
+
+
+    @Override
+    public Optional<User> findByShortName(ShortName username) {
+
+
+        ShortNameJPA shortNameJPA = mstruct.INSTANCE.ShortNameToShortNameJPA(username);
+
+        Optional<UserJPA> byShortName = repository.<ShortNameJPA>findByShortName(shortNameJPA);
+
+
+        if(byShortName.isEmpty())
+            return Optional.empty();
+
+        return  Optional.of( mapper.getMapper().map(byShortName.orElseThrow(), User.class) );
+//        return  Optional.of( mstruct.INSTANCE. );
+    }
+
+    @Override
+    public Optional<User> findByEmail(EmailAddress email) {
+        return Optional.empty();
+    }
+
+    @Override
+    public Optional<User> findByEmailOrShortName(EmailAddress email, ShortName username) {
+        return Optional.empty();
     }
 }

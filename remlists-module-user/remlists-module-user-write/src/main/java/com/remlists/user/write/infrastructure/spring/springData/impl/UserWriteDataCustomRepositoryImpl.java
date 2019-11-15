@@ -5,6 +5,9 @@ import com.remlists.shared.domain.valueObjects.ValueObject;
 import com.remlists.user.domain.repository.UserRepository;
 import com.remlists.user.write.infrastructure.jpa.entities.UserJPA;
 import com.remlists.shared.infrastructure.jpa.valueObjects.IdJPA;
+import com.remlists.user.write.infrastructure.jpa.repository.UserRepositoryJPA;
+import com.remlists.user.write.infrastructure.jpa.valueObjects.EmailAddressJPA;
+import com.remlists.user.write.infrastructure.jpa.valueObjects.ShortNameJPA;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -25,18 +28,18 @@ import static com.remlists.user.write.infrastructure.spring.BeanNames.Infrastruc
 @Transactional(transactionManagerUserWrite)
 public class UserWriteDataCustomRepositoryImpl
                                     extends SimpleJpaRepository<UserJPA, IdJPA>
-                                    implements UserRepository<UserJPA, IdJPA>
+                                    implements UserRepositoryJPA
 {
 
     private static final Logger LOG = LoggerFactory.getLogger(UserWriteDataCustomRepositoryImpl.class);
 
 
-    private UserRepository repository;
+    private UserRepositoryJPA repository;
     private final EntityManager em;
 
 
     public UserWriteDataCustomRepositoryImpl(@Qualifier(entityManagerUserWrite) EntityManager em,
-                                             @Qualifier(userWriteDataRepository) UserRepository repository
+                                             @Qualifier(userWriteDataRepository) UserRepositoryJPA repository
                                       ) {
 
         super(UserJPA.class, em);
@@ -47,18 +50,17 @@ public class UserWriteDataCustomRepositoryImpl
 
 
     @Override
-    public <VO extends ValueObject> Optional<UserJPA> findByShortName(VO username) {
+    public Optional<UserJPA> findByShortName(ShortNameJPA username) {
         return repository.findByShortName(username);
-
     }
 
     @Override
-    public <VO extends ValueObject> Optional<UserJPA> findByEmail(VO email) {
+    public Optional<UserJPA> findByEmail(EmailAddressJPA email) {
         return repository.findByEmail(email);
     }
 
     @Override
-    public <VO extends ValueObject> Optional<UserJPA> findByEmailOrShortName(VO email, VO username) {
+    public Optional<UserJPA> findByEmailOrShortName(EmailAddressJPA email, ShortNameJPA username) {
         return repository.findByEmailOrShortName(email, username);
     }
 }

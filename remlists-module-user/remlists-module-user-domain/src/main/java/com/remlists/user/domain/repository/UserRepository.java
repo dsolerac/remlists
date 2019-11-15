@@ -2,17 +2,21 @@ package com.remlists.user.domain.repository;
 
 
 import com.remlists.shared.domain.repository.CrudRepository;
+import com.remlists.shared.domain.valueObjects.Id;
 import com.remlists.shared.domain.valueObjects.ValueObject;
+import com.remlists.user.domain.entities.User;
+import com.remlists.user.domain.valueObjects.EmailAddress;
+import com.remlists.user.domain.valueObjects.ShortName;
 
 import java.util.Optional;
 
 
-public interface UserRepository<E, ID> extends CrudRepository<E, ID> {
+public interface UserRepository extends CrudRepository<User, Id> {
 
 
-    <VO extends ValueObject> Optional<E> findByShortName(VO username);
-    <VO extends ValueObject> Optional<E> findByEmail(VO email);
-    <VO extends ValueObject> Optional<E> findByEmailOrShortName(VO email, VO username);
+    Optional<User> findByShortName(ShortName username);
+    Optional<User> findByEmail(EmailAddress email);
+    Optional<User> findByEmailOrShortName(EmailAddress email, ShortName username);
 
 
 }

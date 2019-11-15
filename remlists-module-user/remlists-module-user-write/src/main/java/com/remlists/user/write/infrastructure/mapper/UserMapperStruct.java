@@ -1,14 +1,12 @@
 package com.remlists.user.write.infrastructure.mapper;
 
-import com.remlists.shared.domain.valueObjects.Id;
 import com.remlists.user.domain.entities.Role;
 import com.remlists.user.domain.entities.User;
-import com.remlists.user.domain.valueObjects.RoleName;
+import com.remlists.user.domain.valueObjects.ShortName;
 import com.remlists.user.write.infrastructure.jpa.entities.RoleJPA;
 import com.remlists.user.write.infrastructure.jpa.entities.UserJPA;
 import com.remlists.user.write.infrastructure.jpa.entities.UserRolesJPA;
-import com.remlists.user.write.infrastructure.jpa.valueObjects.RoleNameJPA;
-import com.remlists.user.write.infrastructure.jpa.valueObjects.UserRolesIdJPA;
+import com.remlists.user.write.infrastructure.jpa.valueObjects.ShortNameJPA;
 import org.mapstruct.*;
 import org.mapstruct.factory.Mappers;
 import org.slf4j.Logger;
@@ -34,8 +32,6 @@ public interface UserMapperStruct {
 
     })
     RoleJPA roleToRoleJPA(Role role);
-
-
 
 
 
@@ -103,12 +99,12 @@ public interface UserMapperStruct {
     })
     Role userRolesJPAToRole_fromRole(UserRolesJPA userRolesJPA);
 
-
-
+    @IterableMapping(qualifiedByName="userToUserJPA_withoutRoles")
+    Set<UserJPA> userSetToUserJPASet(Set<User> users);
 
 
     /* ==== Value Objects ====*/
 
-
+    ShortNameJPA ShortNameToShortNameJPA(ShortName username);
 
 }

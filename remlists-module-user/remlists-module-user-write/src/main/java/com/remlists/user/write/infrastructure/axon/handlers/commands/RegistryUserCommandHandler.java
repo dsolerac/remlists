@@ -52,4 +52,5 @@ public class RegistryUserCommandHandler implements com.remlists.shared.applicati
         */
 
     }
+
 }
