@@ -22,21 +22,12 @@ public class ShortName implements ValueObject {
 
 
     public ShortName(String shortName) {
-        this.setShortName(shortName);
-    }
-
-    public ShortName() {
+        this.shortName = shortName;
     }
 
 
     public String getShortName() {
         return shortName;
-    }
-
-
-    public void setShortName(String shortName) {
-
-        this.shortName = shortName;
     }
 
 

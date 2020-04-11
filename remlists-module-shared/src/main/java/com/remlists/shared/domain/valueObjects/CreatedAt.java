@@ -17,17 +17,17 @@ public class CreatedAt implements ValueObject {
         this.createdAt = createdAt;
     }
 
+    /**
+     * Create a Local Date Time of that instant
+     */
     public CreatedAt() {
+        createdAt = LocalDateTime.now();
     }
-
 
     public LocalDateTime getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
 
     @Override
     public boolean equals(Object o) {

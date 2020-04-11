@@ -4,18 +4,18 @@ import com.remlists.shared.domain.valueObjects.ValueObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.validation.constraints.NotNull;
+
 public class EmailVerified implements ValueObject {
 
     private static final Logger LOG = LoggerFactory.getLogger(EmailVerified.class);
 
+    @NotNull
     private Boolean verified;
 
 
-    public EmailVerified(Boolean verified) {
+    public EmailVerified(@NotNull Boolean verified) {
         this.verified = verified;
-    }
-
-    public EmailVerified() {
     }
 
 
@@ -23,9 +23,6 @@ public class EmailVerified implements ValueObject {
         return verified;
     }
 
-    public void setVerified(Boolean verified) {
-        this.verified = verified;
-    }
 
     @Override
     public boolean equals(Object o) {

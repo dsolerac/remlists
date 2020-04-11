@@ -12,7 +12,7 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Role implements Serializable {
+public final class Role implements Serializable {
 
     private static final Logger LOG = LoggerFactory.getLogger(User.class);
 
@@ -33,10 +33,12 @@ public class Role implements Serializable {
     }
 
     public Role(Id id, @Valid RoleName role) {
+
+        this();
+
         this.id = id;
         this.role = role;
 
-        this.users = new HashSet<>();
     }
 
 

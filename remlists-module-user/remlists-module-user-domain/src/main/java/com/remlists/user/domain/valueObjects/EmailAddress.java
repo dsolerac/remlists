@@ -17,19 +17,12 @@ public class EmailAddress implements ValueObject {
     @Email(message = "{EmailAddress.emailAddress.Email}")
     private String emailAddress;
 
-    public EmailAddress() {
-    }
 
-    public EmailAddress(String emailAddress) {
-        this.setEmailAddress(emailAddress);
-    }
-
-
-    public void setEmailAddress(String emailAddress) {
-
+    public EmailAddress(@NotEmpty(message = "{EmailAddress.emailAddress.NotEmpty}")
+                        @Email(message = "{EmailAddress.emailAddress.Email}") String emailAddress) {
         this.emailAddress = emailAddress;
-
     }
+
 
     public String getEmailAddress() {
         return emailAddress;

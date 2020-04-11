@@ -16,22 +16,22 @@ public class Id implements ValueObject {
     private UUID uuid;
 
 
-
+    /**
+     * Create a Id Value Object with a random UUID
+     */
     public Id() {
+        this.uuid = UUID.randomUUID();
     }
 
     public Id(@NotEmpty UUID uuid) {
         this.uuid = uuid;
     }
 
-
-
-
     public UUID getUuid() {
         return uuid;
     }
 
-    public void setUuid(UUID uuid){
+    private void setUuid(UUID uuid){
         this.uuid = uuid;
     }
 

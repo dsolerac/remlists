@@ -19,16 +19,10 @@ public class Password implements ValueObject {
         this.password = password;
     }
 
-    public Password() {
-    }
-
     public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
 
     @Override

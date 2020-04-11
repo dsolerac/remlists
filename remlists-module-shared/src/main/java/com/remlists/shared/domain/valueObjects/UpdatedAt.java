@@ -17,7 +17,11 @@ public class UpdatedAt implements ValueObject {
         this.updatedAt = updatedAt;
     }
 
+    /**
+     * Create a Local Date Time of that instant
+     */
     public UpdatedAt() {
+        updatedAt = LocalDateTime.now();
     }
 
 
@@ -25,9 +29,6 @@ public class UpdatedAt implements ValueObject {
         return updatedAt;
     }
 
-    public void setUpdatedAt(LocalDateTime updatedAt) {
-        this.updatedAt = updatedAt;
-    }
 
     @Override
     public boolean equals(Object o) {
