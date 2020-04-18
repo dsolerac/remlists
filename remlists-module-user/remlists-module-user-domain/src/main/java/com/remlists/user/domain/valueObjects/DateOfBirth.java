@@ -14,6 +14,14 @@ public final class DateOfBirth implements Serializable {
     @Past
     private LocalDate date;
 
+    public DateOfBirth(@Past LocalDate date) {
+        this.date = date;
+    }
+
+    public DateOfBirth(int year, int month, int dayOfMonth) {
+        this (LocalDate.of(year, month, dayOfMonth));
+    }
+
     public LocalDate getDate() {
         return date;
     }

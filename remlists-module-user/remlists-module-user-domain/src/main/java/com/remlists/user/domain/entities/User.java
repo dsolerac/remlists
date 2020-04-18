@@ -13,6 +13,7 @@ import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -21,20 +22,26 @@ public final class User implements Serializable {
 
     private static final Logger logger = LoggerFactory.getLogger(User.class);
 
-
+//    common attributes
     private Id id;
+    @Valid
+    private CreatedAt createdAt;
+    @Valid
+    private UpdatedAt updatedAt;
+
+//    mandatory attributes
     @Valid
     private ShortName shortName;
     @Valid
     private EmailAddress email;
     @Valid
-    private CreatedAt createdAt;
+    private Password password;
+
+//    other attributes
     @Valid
-    private UpdatedAt updatedAt;
+    private Country country;
     @Valid
     private EmailVerified verified;
-    @Valid
-    private Password password;
     @Valid
     private Language language;
     @Valid
@@ -60,19 +67,36 @@ public final class User implements Serializable {
 
 
 
-    User(Id id, ShortName shortName, EmailAddress email, Password password) {
-        this.id = id;
-        this.shortName = shortName;
-        this.email = email;
-        this.password = password;
+    private User() {
 
         this.createdAt = new CreatedAt(LocalDateTime.now());
         this.updatedAt = new UpdatedAt(LocalDateTime.now());
         this.verified = new EmailVerified(false);
 
-        this.roles = new HashSet<>();
+        this.roles = Collections.emptySet();
+        this.roleGroups = Collections.emptySet();
     }
 
+    private User (UserBuilder userBuilder){
+        this();
+
+        this.id = userBuilder.id;
+        this.shortName = userBuilder.shortName;
+        this.country = userBuilder.country;
+        this.email = userBuilder.email;
+        this.password = userBuilder.password;
+        this.language = userBuilder.language;
+        this.twitter = userBuilder.twitter;
+        this.dateOfBirth = userBuilder.dateOfBirth;
+        this.mobilePhone = userBuilder.mobilePhone;
+        this.status = userBuilder.status;
+        this.urlWeb = userBuilder.urlWeb;
+        this.description = userBuilder.description;
+
+        this.roles = userBuilder.roles;
+        this.roleGroups = userBuilder.roleGroups;
+
+    }
 
     public void setId(Id id) {
         this.id = id;
@@ -149,6 +173,14 @@ public final class User implements Serializable {
 
     public void setLanguage(Language language) {
         this.language = language;
+    }
+
+    public Country getCountry() {
+        return country;
+    }
+
+    public void setCountry(Country country) {
+        this.country = country;
     }
 
     public Twitter getTwitter() {
@@ -283,6 +315,7 @@ public final class User implements Serializable {
         private Password password;
         //optional attributes
         private Language language;
+        private Country country;
         private Twitter twitter;
         private DateOfBirth dateOfBirth;
         private MobilePhone mobilePhone;
@@ -313,6 +346,10 @@ public final class User implements Serializable {
 
         public UserBuilder withLanguage(Language language){
             this.language=language;
+            return this;
+        }
+        public UserBuilder withCountry(Country country){
+            this.country=country;
             return this;
         }
         public UserBuilder withTwitter(Twitter twitter){
@@ -362,8 +399,8 @@ public final class User implements Serializable {
 
 
 
-        public User createUser() {
-            return new User(id, shortName, email, password);
+        public User build() {
+            return new User(this);
         }
 
 

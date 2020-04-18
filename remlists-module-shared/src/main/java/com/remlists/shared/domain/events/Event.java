@@ -1,7 +1,6 @@
 package com.remlists.shared.domain.events;
 
 import java.io.Serializable;
-import java.lang.reflect.Field;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;

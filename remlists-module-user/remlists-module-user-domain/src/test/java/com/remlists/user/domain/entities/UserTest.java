@@ -1,6 +1,7 @@
 package com.remlists.user.domain.entities;
 
 import com.remlists.shared.domain.valueObjects.Id;
+import com.remlists.user.domain.objectMother.UserObjectMother;
 import com.remlists.user.domain.valueObjects.*;
 import org.junit.jupiter.api.*;
 import org.slf4j.Logger;
@@ -44,10 +45,12 @@ class UserTest {
         void createUser() {
 
             //Given
-            Id id = new Id(UUID.randomUUID());
+//            Id id = new Id(UUID.randomUUID());
+//            Password password = new Password("pass");
             ShortName name = new ShortName("dsolerac");
             EmailAddress email = new EmailAddress("dsc@gmail.com");
-            Password password = new Password("pass");
+
+            User user = UserObjectMother.createBasicUser().build();
 
             Id idRole = new Id(UUID.randomUUID());
             RoleName roleName = new RoleName("TESTING_ROLE");
@@ -55,7 +58,6 @@ class UserTest {
 
 
             //When
-            User user = new User(id, name, email, password);
             user.setArrayRoles(role);
 
             //Then
@@ -137,6 +139,10 @@ class UserTest {
             assertThat(violations.isEmpty()).isTrue();
 
             assertThat(user1).isEqualToIgnoringGivenFields(user2, "createdAt", "updatedAt");
+
+        }
+
+        void createValidUser_WithCountryES_test(){
 
         }
 
