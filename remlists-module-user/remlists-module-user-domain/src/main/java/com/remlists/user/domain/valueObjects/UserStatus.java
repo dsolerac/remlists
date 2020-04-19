@@ -12,7 +12,7 @@ public enum UserStatus implements Serializable {
     INACTIVE,
     DELETED;
 
-    private static final Logger LOG = LoggerFactory.getLogger(Country.class);
+    private static final Logger LOG = LoggerFactory.getLogger(UserStatus.class);
 
 
 }

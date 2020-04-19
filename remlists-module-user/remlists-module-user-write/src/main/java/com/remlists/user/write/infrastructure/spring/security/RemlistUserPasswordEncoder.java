@@ -1,6 +1,7 @@
 package com.remlists.user.write.infrastructure.spring.security;
 
 import com.remlists.user.domain.services.PasswordEncoderDomainService;
+import com.remlists.user.domain.valueObjects.Password;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
@@ -14,8 +15,8 @@ public class RemlistUserPasswordEncoder implements PasswordEncoderDomainService 
     }
 
     @Override
-    public String encode(String passwordToEncode) {
-        return encoder.encode(passwordToEncode);
+    public String encode(Password passwordToEncode) {
+        return encoder.encode(passwordToEncode.getPassword());
     }
 
     @Override

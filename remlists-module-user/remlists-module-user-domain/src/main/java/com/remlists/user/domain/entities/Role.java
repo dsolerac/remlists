@@ -1,46 +1,67 @@
 package com.remlists.user.domain.entities;
 
 import com.remlists.shared.domain.valueObjects.Id;
+import com.remlists.user.domain.valueObjects.BaseRoles;
 import com.remlists.user.domain.valueObjects.RoleDescription;
 import com.remlists.user.domain.valueObjects.RoleName;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
 public final class Role implements Serializable {
 
-    private static final Logger LOG = LoggerFactory.getLogger(User.class);
+    private static final Logger LOG = LoggerFactory.getLogger(Role.class);
 
-
+    @Valid
     private Id id;
     @Valid
-    private RoleName role;
+    private RoleName roleName;
     @Valid
     private RoleDescription description;
 
+//    @Valid
     private Set<User> users;
 
 
 
 
-    public Role() {
+    private Role() {
         this.users = new HashSet<>();
     }
 
-    public Role(Id id, @Valid RoleName role) {
+    /**
+     * Create new Role with a specific Id
+     * @param id
+     * @param roleName
+     */
+    public Role(Id id, RoleName roleName) {
 
         this();
 
         this.id = id;
-        this.role = role;
+        this.roleName = roleName;
 
     }
 
+    /**
+     * Create new Role with a random Id
+     * @param roleName
+     */
+    public Role(RoleName roleName){
+        this(new Id(), roleName);
+    }
+
+    /**
+     * Create new Role with a random Id
+     * @param roleName
+     */
+    public Role(String roleName){
+        this(new RoleName(roleName));
+    }
 
 
 
@@ -52,12 +73,12 @@ public final class Role implements Serializable {
         this.id = id;
     }
 
-    public RoleName getRole() {
-        return role;
+    public RoleName getRoleName() {
+        return roleName;
     }
 
-    public void setRole(RoleName role) {
-        this.role = role;
+    public void setRoleName(RoleName roleName) {
+        this.roleName = roleName;
     }
 
     public RoleDescription getDescription() {
@@ -88,19 +109,18 @@ public final class Role implements Serializable {
         if (this == o) return true;
         if (!(o instanceof Role)) return false;
 
-        Role role1 = (Role) o;
+        Role role = (Role) o;
 
-        if (getId() != null ? !getId().equals(role1.getId()) : role1.getId() != null) return false;
-        if (getRole() != null ? !getRole().equals(role1.getRole()) : role1.getRole() != null) return false;
-        if (getDescription() != null ? !getDescription().equals(role1.getDescription()) : role1.getDescription() != null)
+        if (getRoleName() != null ? !getRoleName().equals(role.getRoleName()) : role.getRoleName() != null)
             return false;
-        return getUsers() != null ? getUsers().equals(role1.getUsers()) : role1.getUsers() == null;
+        if (getDescription() != null ? !getDescription().equals(role.getDescription()) : role.getDescription() != null)
+            return false;
+        return getUsers() != null ? getUsers().equals(role.getUsers()) : role.getUsers() == null;
     }
 
     @Override
     public int hashCode() {
-        int result = getId() != null ? getId().hashCode() : 0;
-        result = 31 * result + (getRole() != null ? getRole().hashCode() : 0);
+        int result = getRoleName() != null ? getRoleName().hashCode() : 0;
         result = 31 * result + (getDescription() != null ? getDescription().hashCode() : 0);
         result = 31 * result + (getUsers() != null ? getUsers().hashCode() : 0);
         return result;
@@ -110,7 +130,7 @@ public final class Role implements Serializable {
     public String toString() {
         return "Role{" +
                 "id=" + id +
-                ", role=" + role +
+                ", role=" + roleName +
                 ", description=" + description +
                 ", users=" + users +
                 '}';

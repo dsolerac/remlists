@@ -12,12 +12,12 @@ public final class Language implements Serializable {
     private static final Logger LOG = LoggerFactory.getLogger(Language.class);
 
 
-    @NotEmpty
+    @NotEmpty(message = "user.language.code.notEmpty")
     private String code;
-    @NotEmpty
+    @NotEmpty(message = "user.language.name.notEmpty")
     private String name;
 
-    public Language(@NotEmpty String code, @NotEmpty String name) {
+    public Language(String code, String name) {
         this.code = code;
         this.name = name;
     }

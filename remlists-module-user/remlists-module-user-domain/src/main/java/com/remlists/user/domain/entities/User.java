@@ -10,10 +10,9 @@ import org.slf4j.LoggerFactory;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -60,9 +59,11 @@ public final class User implements Serializable {
     //relations
     @Valid
     private UserAddress address;
-    @NotEmpty(message = "{User.roles.NotEmpty}")
+
+    @NotEmpty(message = "user.roles.notEmpty")
     private Set<Role> roles;
-    @NotEmpty(message = "{User.roles.NotEmpty}")
+
+    @NotEmpty(message = "user.roleGroup.notEmpty")
     private Set<RoleGroup> roleGroups;
 
 
@@ -73,8 +74,11 @@ public final class User implements Serializable {
         this.updatedAt = new UpdatedAt(LocalDateTime.now());
         this.verified = new EmailVerified(false);
 
-        this.roles = Collections.emptySet();
-        this.roleGroups = Collections.emptySet();
+        this.roles = new HashSet<>();
+        this.roles.add(BaseRoles.ROLE_USER.getRole());
+
+        this.roleGroups = new HashSet<>();
+        this.roleGroups.add(BaseRoleGroups.ROLE_GROUP_USERS.getRoleGroup());
     }
 
     private User (UserBuilder userBuilder){
@@ -93,8 +97,6 @@ public final class User implements Serializable {
         this.urlWeb = userBuilder.urlWeb;
         this.description = userBuilder.description;
 
-        this.roles = userBuilder.roles;
-        this.roleGroups = userBuilder.roleGroups;
 
     }
 
@@ -125,18 +127,6 @@ public final class User implements Serializable {
 
     public Id getId() {
         return id;
-    }
-
-    public Set<Role> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
-    }
-
-    public void setArrayRoles(Role... roles) {
-        this.roles = Set.of(roles);
     }
 
     public CreatedAt getCreatedAt() {
@@ -231,6 +221,7 @@ public final class User implements Serializable {
         this.description = description;
     }
 
+
     public UserAddress getAddress() {
         return address;
     }
@@ -239,12 +230,28 @@ public final class User implements Serializable {
         this.address = address;
     }
 
+    public void addRole(Role role){
+        this.roles.add(role);
+    }
+
+    public void removeRole (Role role){
+        this.roles.remove(role);
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles.addAll( roles);
+    }
+
     public Set<RoleGroup> getRoleGroups() {
         return roleGroups;
     }
 
     public void setRoleGroups(Set<RoleGroup> roleGroups) {
-        this.roleGroups = roleGroups;
+        this.roleGroups.addAll(roleGroups);
     }
 
 
@@ -259,13 +266,23 @@ public final class User implements Serializable {
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", shortName=" + shortName +
-                ", email=" + email +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +
-                ", verified=" + verified +
+                ", shortName=" + shortName +
+                ", email=" + email +
                 ", password=" + password +
-                ", roles=" + (roles != null? roles.size(): "0")+
+                ", country=" + country +
+                ", verified=" + verified +
+                ", language=" + language +
+                ", twitter=" + twitter +
+                ", dateOfBirth=" + dateOfBirth +
+                ", mobilePhone=" + mobilePhone +
+                ", status=" + status +
+                ", urlWeb=" + urlWeb +
+                ", description=" + description +
+                ", address=" + address +
+                ", roles=" + roles.size() +
+                ", roleGroups=" + roleGroups.size() +
                 '}';
     }
 
@@ -276,35 +293,50 @@ public final class User implements Serializable {
 
         User user = (User) o;
 
-        if (getId() != null ? !getId().equals(user.getId()) : user.getId() != null) return false;
         if (getShortName() != null ? !getShortName().equals(user.getShortName()) : user.getShortName() != null)
             return false;
         if (getEmail() != null ? !getEmail().equals(user.getEmail()) : user.getEmail() != null) return false;
-        if (getCreatedAt() != null ? !getCreatedAt().equals(user.getCreatedAt()) : user.getCreatedAt() != null)
-            return false;
-        if (getUpdatedAt() != null ? !getUpdatedAt().equals(user.getUpdatedAt()) : user.getUpdatedAt() != null)
-            return false;
-        if (getVerified() != null ? !getVerified().equals(user.getVerified()) : user.getVerified() != null)
-            return false;
         if (getPassword() != null ? !getPassword().equals(user.getPassword()) : user.getPassword() != null)
             return false;
-        return getRoles() != null ? getRoles().equals(user.getRoles()) : user.getRoles() == null;
+        if (getCountry() != null ? !getCountry().equals(user.getCountry()) : user.getCountry() != null) return false;
+        if (getVerified() != null ? !getVerified().equals(user.getVerified()) : user.getVerified() != null)
+            return false;
+        if (getLanguage() != null ? !getLanguage().equals(user.getLanguage()) : user.getLanguage() != null)
+            return false;
+        if (getTwitter() != null ? !getTwitter().equals(user.getTwitter()) : user.getTwitter() != null) return false;
+        if (getDateOfBirth() != null ? !getDateOfBirth().equals(user.getDateOfBirth()) : user.getDateOfBirth() != null)
+            return false;
+        if (getMobilePhone() != null ? !getMobilePhone().equals(user.getMobilePhone()) : user.getMobilePhone() != null)
+            return false;
+        if (getStatus() != user.getStatus()) return false;
+        if (getUrlWeb() != null ? !getUrlWeb().equals(user.getUrlWeb()) : user.getUrlWeb() != null) return false;
+        if (getDescription() != null ? !getDescription().equals(user.getDescription()) : user.getDescription() != null)
+            return false;
+        if (getAddress() != null ? !getAddress().equals(user.getAddress()) : user.getAddress() != null) return false;
+        if (getRoles() != null ? !getRoles().equals(user.getRoles()) : user.getRoles() != null) return false;
+        return getRoleGroups() != null ? getRoleGroups().equals(user.getRoleGroups()) : user.getRoleGroups() == null;
     }
 
     @Override
     public int hashCode() {
-        int result = getId() != null ? getId().hashCode() : 0;
-        result = 31 * result + (getShortName() != null ? getShortName().hashCode() : 0);
+        int result = getShortName() != null ? getShortName().hashCode() : 0;
         result = 31 * result + (getEmail() != null ? getEmail().hashCode() : 0);
-        result = 31 * result + (getCreatedAt() != null ? getCreatedAt().hashCode() : 0);
-        result = 31 * result + (getUpdatedAt() != null ? getUpdatedAt().hashCode() : 0);
-        result = 31 * result + (getVerified() != null ? getVerified().hashCode() : 0);
         result = 31 * result + (getPassword() != null ? getPassword().hashCode() : 0);
+        result = 31 * result + (getCountry() != null ? getCountry().hashCode() : 0);
+        result = 31 * result + (getVerified() != null ? getVerified().hashCode() : 0);
+        result = 31 * result + (getLanguage() != null ? getLanguage().hashCode() : 0);
+        result = 31 * result + (getTwitter() != null ? getTwitter().hashCode() : 0);
+        result = 31 * result + (getDateOfBirth() != null ? getDateOfBirth().hashCode() : 0);
+        result = 31 * result + (getMobilePhone() != null ? getMobilePhone().hashCode() : 0);
+        result = 31 * result + (getStatus() != null ? getStatus().hashCode() : 0);
+        result = 31 * result + (getUrlWeb() != null ? getUrlWeb().hashCode() : 0);
+        result = 31 * result + (getDescription() != null ? getDescription().hashCode() : 0);
+        result = 31 * result + (getAddress() != null ? getAddress().hashCode() : 0);
         result = 31 * result + (getRoles() != null ? getRoles().hashCode() : 0);
+        result = 31 * result + (getRoleGroups() != null ? getRoleGroups().hashCode() : 0);
         return result;
     }
-
-    //------ Builder  -----------------
+//------ Builder  -----------------
 
     public static class UserBuilder {
 
@@ -327,17 +359,27 @@ public final class User implements Serializable {
         private Set<RoleGroup> roleGroups;
 
 
-
+        /**
+         * @param id
+         * @param shortName
+         * @param email
+         * @param password
+         */
         public UserBuilder(Id id, ShortName shortName, EmailAddress email, Password password) {
+
             this.id = id;
             this.shortName = shortName;
             this.email = email;
             this.password = password;
 
-            this.roles = new HashSet<>();
-            this.roleGroups = new HashSet<>();
         }
 
+        /**
+         *
+         * @param shortName
+         * @param email
+         * @param password
+         */
         public UserBuilder(ShortName shortName, EmailAddress email, Password password) {
 
             this(new Id(),shortName,email, password);
@@ -396,7 +438,6 @@ public final class User implements Serializable {
             this.roleGroups.add(roleGroup);
             return this;
         }
-
 
 
         public User build() {

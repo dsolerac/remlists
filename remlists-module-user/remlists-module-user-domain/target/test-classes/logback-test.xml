@@ -3,11 +3,11 @@
 
     <statusListener class="ch.qos.logback.core.status.OnConsoleStatusListener"/>
 
-    <property shortName="LOG_PATH" value="/tmp/logs"/>
+    <property name="LOG_PATH" value="/tmp"/>
 
     <!--INIT APPENDERS-->
 
-    <appender shortName="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <layout class="ch.qos.logback.classic.PatternLayout" level="debug">
             <Pattern>
                 %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
@@ -15,9 +15,9 @@
         </layout>
     </appender>
 
-    <appender shortName="FILE"
+    <appender name="FILE"
               class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${LOG_PATH}/ConsoleRemlists.log</file>
+        <file>${LOG_PATH}/ConsoleRemlistsUsersDomain.log</file>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <Pattern>
                 %d{yyyy-MM-dd_HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
@@ -40,20 +40,20 @@
     <!--END APPENDERS-->
 
 
-    <!--<logger shortName="org.springframework.batch" level="DEBUG" additivity="false"><appender-ref ref="STDOUT" /><appender-ref ref="FILE" /></logger>-->
-    <logger shortName="org.hibernate.SQL" level="DEBUG" additivity="false">
+    <!--<logger name="org.springframework.batch" level="DEBUG" additivity="false"><appender-ref ref="STDOUT" /><appender-ref ref="FILE" /></logger>-->
+    <logger name="org.hibernate.SQL" level="DEBUG" additivity="false">
         <appender-ref ref="STDOUT"/>
     </logger>
-    <logger shortName="org.hibernate.type" level="TRACE" additivity="false">
+    <logger name="org.hibernate.type" level="TRACE" additivity="false">
         <appender-ref ref="STDOUT"/>
     </logger>
-    <logger shortName="org.hibernate.type.descriptor.sql.BasicBinder" level="TRACE" additivity="false">
+    <logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="TRACE" additivity="false">
         <appender-ref ref="STDOUT"/>
     </logger>
-    <logger shortName="com.zaxxer.hikari" level="TRACE" additivity="false">
+    <logger name="com.zaxxer.hikari" level="TRACE" additivity="false">
         <appender-ref ref="STDOUT"/>
     </logger>
-    <logger shortName="io.lettuce.core" level="TRACE" additivity="false">
+    <logger name="io.lettuce.core" level="TRACE" additivity="false">
         <appender-ref ref="STDOUT"/>
     </logger>
 

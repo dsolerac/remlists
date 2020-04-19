@@ -11,12 +11,11 @@ public class RoleGroupName {
     private static final Logger LOG = LoggerFactory.getLogger(RoleGroupName.class);
 
 
-    @NotEmpty(message = "{RoleName.role.group.NotEmpty}")
-    @Size(max = 20, min = 3, message = "{RoleName.role.group.Size}")
+    @NotEmpty(message = "rolegroup.rolegroupname.notempty")
+    @Size(max = 20, min = 3, message = "rolegroup.rolegroupname.size")
     private String roleGroup;
 
-    public RoleGroupName(@NotEmpty(message = "{RoleName.role.group.NotEmpty}")
-                         @Size(max = 20, min = 3, message = "{RoleName.role.group.Size}") String roleGroup) {
+    public RoleGroupName(String roleGroup) {
         this.roleGroup = roleGroup;
     }
 

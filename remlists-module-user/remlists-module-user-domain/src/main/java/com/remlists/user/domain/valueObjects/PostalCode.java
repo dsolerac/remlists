@@ -11,10 +11,11 @@ public final class PostalCode  implements Serializable {
     private static final Logger LOG = LoggerFactory.getLogger(PostalCode.class);
 
 
-    @NotEmpty
+    @NotEmpty(message = "user.address.postalCode.notEmpty")
+
     private String code;
 
-    public PostalCode(@NotEmpty String code) {
+    public PostalCode(String code) {
         this.code = code;
     }
 

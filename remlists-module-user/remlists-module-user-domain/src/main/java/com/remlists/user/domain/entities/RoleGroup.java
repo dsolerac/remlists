@@ -19,10 +19,10 @@ public final class RoleGroup implements Serializable {
     private Id id;
     @Valid
     private RoleGroupName groupName;
-
+    @Valid
     private RoleGroup groupParent;
 
-    @NotEmpty(message = "{User.roles.NotEmpty}")
+    @NotEmpty(message = "{user.roles.notEmpty}")
     private Set<Role> roles;
 
 
@@ -30,7 +30,7 @@ public final class RoleGroup implements Serializable {
         roles = new HashSet<>();
     }
 
-    public RoleGroup(Id id, @Valid RoleGroupName groupName) {
+    public RoleGroup(Id id, RoleGroupName groupName) {
 
         this();
 
@@ -38,6 +38,15 @@ public final class RoleGroup implements Serializable {
         this.groupName = groupName;
 
     }
+
+    public RoleGroup(RoleGroupName roleGroupName){
+        this(new Id(), roleGroupName);
+    }
+
+    public RoleGroup(String groupName) {
+        this(new RoleGroupName(groupName));
+    }
+
 
     public Id getId() {
         return id;

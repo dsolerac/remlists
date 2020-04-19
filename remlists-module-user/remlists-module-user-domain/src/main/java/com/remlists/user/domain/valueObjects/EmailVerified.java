@@ -10,11 +10,11 @@ public class EmailVerified implements ValueObject {
 
     private static final Logger LOG = LoggerFactory.getLogger(EmailVerified.class);
 
-    @NotNull
+    @NotNull(message = "user.emailVerified.notNull")
     private Boolean verified;
 
 
-    public EmailVerified(@NotNull Boolean verified) {
+    public EmailVerified(Boolean verified) {
         this.verified = verified;
     }
 

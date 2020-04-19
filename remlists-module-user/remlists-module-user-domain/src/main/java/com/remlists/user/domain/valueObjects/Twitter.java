@@ -10,10 +10,10 @@ public final class Twitter implements Serializable {
 
     private static final Logger LOG = LoggerFactory.getLogger(Twitter.class);
 
-    @Pattern(regexp = "^@")
+    @Pattern(regexp = "^@", message = "user.twitter.pattern")
     private String twiterId;
 
-    public Twitter(@Pattern(regexp = "^@") String twiterId) {
+    public Twitter(String twiterId) {
         this.twiterId = twiterId;
     }
 

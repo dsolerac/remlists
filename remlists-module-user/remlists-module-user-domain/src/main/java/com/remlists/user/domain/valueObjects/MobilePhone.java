@@ -10,10 +10,10 @@ public final class MobilePhone implements Serializable  {
 
     private static final Logger LOG = LoggerFactory.getLogger(MobilePhone.class);
 
-    @NotEmpty
+    @NotEmpty(message = "user.mobilePhone.notEmpty")
     private String phone;
 
-    public MobilePhone(@NotEmpty String phone) {
+    public MobilePhone(String phone) {
         this.phone = phone;
     }
 

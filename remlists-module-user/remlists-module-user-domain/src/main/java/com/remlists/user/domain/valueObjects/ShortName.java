@@ -15,9 +15,9 @@ public class ShortName implements ValueObject {
     private static final String CHARACTERS_ALLOWED_IN_SHORT_NAME = "^[a-zA-Z0-9.:_\\\\s]+$";
 
 
-    @NotEmpty(message = "{ShortName.shortName.NotEmpty}")
-    @Size(max = 20, min = 3, message = "{ShortName.shortName.Size}")
-    @Pattern(regexp = CHARACTERS_ALLOWED_IN_SHORT_NAME, message = "{ShortName.shortName.Pattern}")
+    @NotEmpty(message = "user.shortName.notEmpty")
+    @Size(max = 20, min = 3, message = "{user.shortName.size}")
+    @Pattern(regexp = CHARACTERS_ALLOWED_IN_SHORT_NAME, message = "{user.shortName.pattern}")
     private String shortName;
 
 

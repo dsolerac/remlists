@@ -9,11 +9,20 @@ public final class UserObjectMother {
     public static ShortName createShortName(){
         return new ShortName("dsolerac");
     }
+    public static ShortName createNotValidShortName(){
+        return new ShortName("dsolerac#@");
+    }
     public static EmailAddress createEmailAddress(){
         return new EmailAddress("dsc@g.com");
     }
+    public static EmailAddress createNotValidEmailAddress(){
+        return new EmailAddress("dsol.erac.gmail.com");
+    }
     public static Password createPassword(){
         return new Password("123456");
+    }
+    public static Password createNotValidPassword(){
+        return new Password("pas");
     }
 
     public static Country createSpainCountry(){

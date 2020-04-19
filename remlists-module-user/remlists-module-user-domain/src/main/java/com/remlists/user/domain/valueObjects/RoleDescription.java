@@ -9,15 +9,14 @@ import javax.validation.constraints.Size;
 
 public class RoleDescription implements ValueObject {
 
-    private static final Logger LOG = LoggerFactory.getLogger(RoleName.class);
+    private static final Logger LOG = LoggerFactory.getLogger(RoleDescription.class);
 
-    @NotEmpty(message = "{RoleDescription.description.NotEmpty}")
-    @Size(max = 300, min = 3, message = "{RoleDescription.description.Size}")
+    @NotEmpty(message = "role.roleDescription.notEmpty")
+    @Size(max = 300, min = 3, message = "role.roleDescription.size")
     private String description;
 
 
-    public RoleDescription(@NotEmpty(message = "{RoleDescription.description.NotEmpty}")
-                           @Size(max = 20, min = 3, message = "{RoleDescription.description.Size}") String description) {
+    public RoleDescription(String description) {
         this.description = description;
     }
 

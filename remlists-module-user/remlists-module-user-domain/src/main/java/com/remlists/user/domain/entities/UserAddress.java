@@ -23,10 +23,10 @@ public final class UserAddress implements Serializable {
     private PostalCode postalCode;
 
 
-    public UserAddress( @Valid User user,
-                        @Valid Country country,
-                        @Valid City city,
-                        @Valid PostalCode postalCode) {
+    public UserAddress( User user,
+                        Country country,
+                        City city,
+                        PostalCode postalCode) {
 
         this.user = user;
         this.country = country;

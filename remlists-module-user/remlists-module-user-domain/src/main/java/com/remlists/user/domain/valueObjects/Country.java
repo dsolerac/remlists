@@ -11,12 +11,12 @@ public final class Country  implements Serializable {
     private static final Logger LOG = LoggerFactory.getLogger(Country.class);
 
 
-    @NotEmpty
+    @NotEmpty(message = "user.address.country.code.notEmpty")
     private String code;
-    @NotEmpty
+    @NotEmpty(message = "user.address.country.name.notEmpty")
     private String name;
 
-    public Country(@NotEmpty String code, @NotEmpty String name) {
+    public Country(String code, String name) {
         this.code = code;
         this.name = name;
     }

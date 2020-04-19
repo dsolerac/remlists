@@ -11,10 +11,10 @@ public final class City  implements Serializable {
     private static final Logger LOG = LoggerFactory.getLogger(City.class);
 
 
-    @NotEmpty
+    @NotEmpty(message = "user.address.city.notEmpty")
     public String name;
 
-    public City(@NotEmpty String name) {
+    public City(String name) {
         this.name = name;
     }
 

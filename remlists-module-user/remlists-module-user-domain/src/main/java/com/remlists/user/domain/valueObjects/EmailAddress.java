@@ -13,13 +13,12 @@ public class EmailAddress implements ValueObject {
     private static final Logger LOG = LoggerFactory.getLogger(EmailAddress.class);
 
 
-    @NotEmpty(message = "{EmailAddress.emailAddress.NotEmpty}")
-    @Email(message = "{EmailAddress.emailAddress.Email}")
+    @NotEmpty(message = "user.emailAddress.notEmpty")
+    @Email(message = "user.emailAddress.email")
     private String emailAddress;
 
 
-    public EmailAddress(@NotEmpty(message = "{EmailAddress.emailAddress.NotEmpty}")
-                        @Email(message = "{EmailAddress.emailAddress.Email}") String emailAddress) {
+    public EmailAddress(String emailAddress) {
         this.emailAddress = emailAddress;
     }
 

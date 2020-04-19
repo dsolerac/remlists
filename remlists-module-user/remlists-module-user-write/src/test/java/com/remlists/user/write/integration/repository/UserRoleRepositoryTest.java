@@ -83,9 +83,9 @@ public class UserRoleRepositoryTest {
 
 
             System.out.println();
-            System.out.println("User -->" + user.getRoles().stream().findFirst().get().getRole());
+            System.out.println("User -->" + user.getRoles().stream().findFirst().get().getRoleName());
             System.out.println();
-            System.out.println("UserById -->" + byId.get().getRoles().stream().findFirst().get().getRole());
+            System.out.println("UserById -->" + byId.get().getRoles().stream().findFirst().get().getRoleName());
             System.out.println();
 
         }

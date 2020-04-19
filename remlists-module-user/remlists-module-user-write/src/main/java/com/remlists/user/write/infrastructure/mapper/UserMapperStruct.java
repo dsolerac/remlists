@@ -27,7 +27,7 @@ public interface UserMapperStruct {
 
     @Mappings({
             @Mapping(source = "id.uuid", target = "id.uuid"),
-            @Mapping(source = "role.role", target = "roleName.role"),
+            @Mapping(source = "roleName.role", target = "roleName.role"),
             @Mapping(source = "description.description", target = "description.description")
 
     })

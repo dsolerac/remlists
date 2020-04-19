@@ -15,9 +15,9 @@ public class RoleName implements ValueObject {
     private static final String CHARACTERS_ALLOWED_IN_ROLE_NAME = "^[A-Z_]*$";
 
 
-    @NotEmpty(message = "{RoleName.role.NotEmpty}")
-    @Size(max = 20, min = 3, message = "{RoleName.role.Size}")
-    @Pattern(regexp = CHARACTERS_ALLOWED_IN_ROLE_NAME, message = "{RoleName.role.notAllowed}")
+    @NotEmpty(message = "role.roleName.notEmpty")
+    @Size(max = 20, min = 3, message = "role.roleName.size")
+    @Pattern(regexp = CHARACTERS_ALLOWED_IN_ROLE_NAME, message = "role.roleName.notAllowed")
     private String role;
 
 

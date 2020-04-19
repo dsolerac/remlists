@@ -11,11 +11,11 @@ public class Password implements ValueObject {
     private static final Logger LOG = LoggerFactory.getLogger(Password.class);
 
 
-    @NotEmpty(message = "{Password.password.NotEmpty}")
+    @NotEmpty(message = "user.password.notEmpty")
     private String password;
 
 
-    public Password(@NotEmpty(message = "{Password.password.NotEmpty}") String password) {
+    public Password(String password) {
         this.password = password;
     }
 

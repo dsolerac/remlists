@@ -11,10 +11,10 @@ public final class URLWeb implements Serializable {
     private static final Logger LOG = LoggerFactory.getLogger(URLWeb.class);
 
 
-    @URL
+    @URL(message = "user.urlWeb.notValid")
     private String url;
 
-    public URLWeb(@URL String url) {
+    public URLWeb(String url) {
         this.url = url;
     }
 

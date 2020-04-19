@@ -5,8 +5,10 @@ import com.remlists.user.domain.entities.User;
 import com.remlists.user.domain.exceptions.EmailAddressAlreadyExistsException;
 import com.remlists.user.domain.exceptions.RoleNotFoundException;
 import com.remlists.user.domain.exceptions.ShortNameAlreadyExistsException;
+import com.remlists.user.domain.exceptions.UserRoleNotAssociatedException;
 import com.remlists.user.domain.repository.RoleRepository;
 import com.remlists.user.domain.repository.UserRepository;
+import com.remlists.user.domain.valueObjects.BaseRoles;
 import com.remlists.user.domain.valueObjects.Password;
 import com.remlists.user.domain.valueObjects.RoleName;
 
@@ -32,12 +34,12 @@ public class CreateRemlistsUserDomainService {
 
 
         if (userRepository.findByEmail(user.getEmail()).isPresent())
-            throw new EmailAddressAlreadyExistsException("This email address already exists in the system.");
+            throw new EmailAddressAlreadyExistsException("This email address is already registered in the system.");
 
         if (userRepository.findByShortName(user.getShortName()).isPresent())
-            throw new ShortNameAlreadyExistsException("This shortname already exists in the system.");
+            throw new ShortNameAlreadyExistsException("This shortname is already registered in the system.");
 
-        checkingValidityOfRolesToBeRelated(user.getRoles());
+//        checkingValidityOfRolesRelated(user.getRoles());
 
         relateCommonRoles(user);
 
@@ -48,22 +50,28 @@ public class CreateRemlistsUserDomainService {
 
     }
 
-    private void checkingValidityOfRolesToBeRelated(Set<Role> roles) {
+/*    private void checkingValidityOfRolesRelated(Set<Role> roles) {
 
-        if (! roles.isEmpty() ){
+        if (! roles.isEmpty() )
+            throw new UserRoleNotAssociatedException("");
 
             Optional<Role> byRoleName;
             for (Role role: roles) {
-                byRoleName = roleRepository.findByRoleName(role.getRole());
-                byRoleName
-                        .map(Role::getRole)
-                        .orElseThrow( () -> new RoleNotFoundException("There are not any role with this name: " + role.getRole().getRole() + ". Please contact with your administrator." ) );
+                    byRoleName = roleRepository.findByRoleName(role.getRoleName());
+                    byRoleName
+                            .map(Role::getRoleName)
+                            .orElseThrow(() -> new RoleNotFoundException("There are not any role with this name: " + role.getRoleName().getRole() + ". Please contact with your administrator."));
             }
-        }
 
-    }
+
+    }*/
 
     private void relateCommonRoles(User user){
+
+        if ( user.getRoles().isEmpty() && user.getRoleGroups().isEmpty() )
+            throw new UserRoleNotAssociatedException(BaseRoles.ROLE_USER.getRoleName() + " should already be associated.");
+
+//        if (user.getRoleGroups().getRoles().isEmpty )
 
         Set allByRoleName = roleRepository.findByRoleNameIn(new RoleName("USER"), new RoleName("USER_FREE"));
         user.setRoles(allByRoleName);
@@ -72,11 +80,7 @@ public class CreateRemlistsUserDomainService {
 
 
     private void encodeUserPassword(User user) {
-        user.setPassword( new Password( encoder.encode( user.getPassword().getPassword() ) ) );
+        user.setPassword( new Password( encoder.encode( user.getPassword() ) ) );
     }
-
-
-
-
 
 }

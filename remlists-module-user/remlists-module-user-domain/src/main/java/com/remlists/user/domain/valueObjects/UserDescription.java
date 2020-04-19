@@ -11,10 +11,10 @@ public final class UserDescription implements Serializable {
     private static final Logger LOG = LoggerFactory.getLogger(UserDescription.class);
 
 
-    @NotEmpty
+    @NotEmpty(message = "user.description.notEmpty")
     private String description;
 
-    public UserDescription(@NotEmpty String description) {
+    public UserDescription(String description) {
         this.description = description;
     }
 

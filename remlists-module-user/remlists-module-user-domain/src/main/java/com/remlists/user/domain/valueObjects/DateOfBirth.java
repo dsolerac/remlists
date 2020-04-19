@@ -11,10 +11,10 @@ public final class DateOfBirth implements Serializable {
 
     private static final Logger LOG = LoggerFactory.getLogger(DateOfBirth.class);
 
-    @Past
+    @Past(message = "user.dateOfBirth.past" )
     private LocalDate date;
 
-    public DateOfBirth(@Past LocalDate date) {
+    public DateOfBirth(LocalDate date) {
         this.date = date;
     }
 

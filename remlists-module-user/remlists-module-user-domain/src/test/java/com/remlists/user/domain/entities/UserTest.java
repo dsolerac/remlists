@@ -1,6 +1,7 @@
 package com.remlists.user.domain.entities;
 
 import com.remlists.shared.domain.valueObjects.Id;
+import com.remlists.user.domain.objectMother.RoleObjectMother;
 import com.remlists.user.domain.objectMother.UserObjectMother;
 import com.remlists.user.domain.valueObjects.*;
 import org.junit.jupiter.api.*;
@@ -41,28 +42,19 @@ class UserTest {
     class User_ValidTests {
 
         @Test
-        @DisplayName("Create user")
-        void createUser() {
+        @DisplayName("Create Simple user")
+        void createSimpleUser() {
 
             //Given
-//            Id id = new Id(UUID.randomUUID());
-//            Password password = new Password("pass");
-            ShortName name = new ShortName("dsolerac");
-            EmailAddress email = new EmailAddress("dsc@gmail.com");
-
-            User user = UserObjectMother.createBasicUser().build();
-
-            Id idRole = new Id(UUID.randomUUID());
-            RoleName roleName = new RoleName("TESTING_ROLE");
-            Role role = new Role(idRole, roleName);
-
+            ShortName name = UserObjectMother.createShortName();
+            EmailAddress email = UserObjectMother.createEmailAddress();
 
             //When
-            user.setArrayRoles(role);
+            User user = UserObjectMother.createBasicUser().build();
 
             //Then
             Set<ConstraintViolation<User>> violations = validator.validate(user);
-            assertThat(violations.isEmpty()).isTrue();
+            assertThat( violations.isEmpty() ).isTrue();
 
             assertThat(user.getShortName()).isEqualTo(name);
             assertThat(user.getEmail()).isEqualTo(email);
@@ -71,25 +63,18 @@ class UserTest {
 
         @Test
         @DisplayName("Compare two users are equal")
-        void sameValueAs() {
+        void userSameValueAs() {
 
             //Given
-            Id id = new Id(UUID.randomUUID());
-            ShortName name = new ShortName("dsolerac");
-            EmailAddress email = new EmailAddress("dsc@gmail.com");
-            Password password = new Password("pass");
-
-
-            Id idRole = new Id(UUID.randomUUID());
-            RoleName roleName = new RoleName("TESTING_ROLE");
-            Role role = new Role(idRole, roleName);
+            Role role = RoleObjectMother.createTestingRole();
 
             //When
-            User user1 = new User(id, name, email, password);
-            user1.setArrayRoles(role);
-            User user2 = new User(id, name, email, password);
-            user2.setArrayRoles(role);
+            User user1 = UserObjectMother.createBasicUser().build();
+            user1.addRole(role);
+            User user2 = UserObjectMother.createBasicUser().build();
+            user2.addRole(role);
 
+            boolean isSame = user1.sameIdentityAs(user2);
 
             //Then
             Set<ConstraintViolation<User>> violations = validator.validate(user1);
@@ -97,7 +82,9 @@ class UserTest {
             violations = validator.validate(user2);
             assertThat(violations.isEmpty()).isTrue();
 
-            assertThat(user1).isEqualToIgnoringGivenFields(user2, "createdAt", "updatedAt");
+            assertThat(isSame).isTrue();
+
+            assertThat(user1).isEqualToIgnoringGivenFields(user2, "id", "createdAt", "updatedAt");
 
         }
 
@@ -106,31 +93,19 @@ class UserTest {
         void sameValueAs_WithTwoDifferentsValueObjects() {
 
             //Given
-            Id id = new Id(UUID.randomUUID());
+            ShortName dsolerac = UserObjectMother.createShortName();
+            EmailAddress dsc_g_com = UserObjectMother.createEmailAddress();
+            Password _123456 = UserObjectMother.createPassword();
+            User user1 = new User.UserBuilder( dsolerac, dsc_g_com, _123456 ).build();
 
-            ShortName name1 = new ShortName("dsolerac");
-            EmailAddress email1 = new EmailAddress("dsc@gmail.com");
-            Password password1 = new Password("pass");
+            User user2 = UserObjectMother.createBasicUser().build();
 
-
-            ShortName name2 = new ShortName("dsolerac");
-            EmailAddress email2 = new EmailAddress("dsc@gmail.com");
-            Password password2 = new Password("pass");
-
-
-            Id idRole = new Id(UUID.randomUUID());
-            RoleName roleName = new RoleName("TESTING_ROLE");
-            Role role1 = new Role(idRole, roleName);
-            Role role2 = new Role(idRole, roleName);
-
+            Role role1 = RoleObjectMother.createTestingRole();
+            Role role2 = RoleObjectMother.createTestingRole();
 
             //When
-            User user1 = new User(id, name1, email1,password1);
-            user1.setArrayRoles(role1);
-
-            User user2 = new User(id, name2, email2, password2);
-            user2.setArrayRoles(role2);
-
+            user1.addRole(role1);
+            user2.addRole(role2);
 
             //Then
             Set<ConstraintViolation<User>> violations = validator.validate(user1);
@@ -138,11 +113,7 @@ class UserTest {
             violations = validator.validate(user2);
             assertThat(violations.isEmpty()).isTrue();
 
-            assertThat(user1).isEqualToIgnoringGivenFields(user2, "createdAt", "updatedAt");
-
-        }
-
-        void createValidUser_WithCountryES_test(){
+            assertThat(user1).isEqualToIgnoringGivenFields(user2, "id", "createdAt", "updatedAt");
 
         }
 
@@ -151,24 +122,21 @@ class UserTest {
         void notSameValueAs() {
 
             //Given
-            ShortName name1 = new ShortName("dsolerac");
             ShortName name2 = new ShortName("dsolerac2");
-            EmailAddress email1 = new EmailAddress("dsc@gmail.com");
             EmailAddress email2 = new EmailAddress("dsc@gmail.com2");
-            Password password1 = new Password("pass");
             Password password2 = new Password("pass");
+            Role role1 = RoleObjectMother.createTestingRole();
 
-
-            Id idRole = new Id(UUID.randomUUID());
+            Id idRole = new Id();
             RoleName roleName = new RoleName("TESTING_ROLE");
-            Role role1 = new Role(idRole, roleName);
             Role role2 = new Role(idRole, roleName);
 
             //When
-            User user1 = new User(new Id(UUID.randomUUID()), name1, email1,password1);
-            user1.setArrayRoles(role1);
-            User user2 = new User(new Id(UUID.randomUUID()), name2, email2,password2);
-            user2.setArrayRoles(role2);
+            User user1 = UserObjectMother.createBasicUser().build();
+            user1.addRole(role1);
+
+            User user2 = new User.UserBuilder( name2, email2,password2).build();
+            user2.addRole(role2);
 
 
             //Then
@@ -181,27 +149,15 @@ class UserTest {
         }
 
         @Test
-        @DisplayName("to relate a role with an user")
+        @DisplayName("Relating a role with an user")
         void relateUserWithRole() {
 
             //Given
-            Id id = new Id(UUID.randomUUID());
-            RoleName roleName = new RoleName("TESTING_ROLE");
-            RoleDescription description = new RoleDescription("Es simplemente el texto de relleno de las imprentas y archivos de texto.");
-            Role role = new Role(id, roleName);
-            role.setDescription(description);
-
-            Id idUser = new Id(UUID.randomUUID());
-            ShortName name = new ShortName("dsolerac");
-            EmailAddress email = new EmailAddress("dsc@g.com");
-            Password password = new Password("pass");
-
-            User user = new User(id, name, email,password);
-
+            Role role = RoleObjectMother.createTestingRole();
+            User user = UserObjectMother.createBasicUser().build();
 
             //When
-            user.setArrayRoles(role);
-
+            user.addRole(role);
 
             //Then
             Set<ConstraintViolation<User>> violations = validator.validate(user);
@@ -221,13 +177,13 @@ class UserTest {
         void createUser_WithEmailNotValidFormat() {
 
             //Given
-            EmailAddress email = new EmailAddress("dsol.erac.gmail.com");
-            ShortName shortName = new ShortName("dsolerac#@");
-            Password password = new Password("pass");
+            EmailAddress email = UserObjectMother.createNotValidEmailAddress();
+            ShortName shortName = UserObjectMother.createNotValidShortName();
+            Password password = UserObjectMother.createNotValidPassword();
 
 
             //When
-            User user = new User(new Id(UUID.randomUUID()), shortName, email,password);
+            User user = new User.UserBuilder(shortName, email,password).build();
 
             //Then
             Set<ConstraintViolation<User>> violations = validator.validate(user);
@@ -246,12 +202,9 @@ class UserTest {
             EmailAddress email = new EmailAddress("dsc@g.com");
             Password password = new Password("pass");
 
-
-
             //When
-            User user = new User(id, name, email, password);
-
-
+            User user = new User.UserBuilder(id, name, email, password).build();
+            user.removeRole(BaseRoles.ROLE_USER.getRole());
 
             //Then
             Set<ConstraintViolation<User>> violations = validator.validate(user);
@@ -262,9 +215,7 @@ class UserTest {
 
         }
 
-
     }
-
 
 }
 
