@@ -4,7 +4,7 @@ import com.remlists.shared.domain.events.MessagePublisher;
 import com.remlists.shared.domain.valueObjects.Id;
 import com.remlists.user.domain.entities.User;
 import com.remlists.user.domain.events.NewUserWasCreated;
-import com.remlists.user.domain.services.CreateRemlistsUserDomainService;
+import com.remlists.user.domain.services.CreateBasicRemlistsUserDomainService;
 import com.remlists.user.domain.valueObjects.EmailAddress;
 import com.remlists.user.domain.valueObjects.Password;
 import com.remlists.user.domain.valueObjects.ShortName;
@@ -27,11 +27,11 @@ import static com.remlists.user.write.infrastructure.spring.BeanNames.Infrastruc
 public class RegistryNewUserAccountServiceImpl implements RegistryNewUserAccountService {
 
 
-    private CreateRemlistsUserDomainService domainService;
+    private CreateBasicRemlistsUserDomainService domainService;
     private MessagePublisher publisher;
     private String hostName;
 
-    public RegistryNewUserAccountServiceImpl(@Qualifier(createUserDomainService) CreateRemlistsUserDomainService domainService,
+    public RegistryNewUserAccountServiceImpl(@Qualifier(createUserDomainService) CreateBasicRemlistsUserDomainService domainService,
                                              @Qualifier(userWriteKafkaMessagePublisher) MessagePublisher publisher,
                                              @Value("${remlists.user.write.config.host.name}") String hostName
 

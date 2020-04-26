@@ -1,16 +1,12 @@
 package com.remlists.user.domain.services;
 
-import com.remlists.shared.domain.valueObjects.Id;
 import com.remlists.user.domain.entities.Role;
 import com.remlists.user.domain.entities.User;
-import com.remlists.user.domain.exceptions.EmailAddressAlreadyExistsException;
-import com.remlists.user.domain.exceptions.ShortNameAlreadyExistsException;
 import com.remlists.user.domain.objectMother.RoleObjectMother;
 import com.remlists.user.domain.objectMother.UserObjectMother;
 import com.remlists.user.domain.repository.RoleRepository;
 import com.remlists.user.domain.repository.UserRepository;
 import com.remlists.user.domain.valueObjects.EmailAddress;
-import com.remlists.user.domain.valueObjects.Password;
 import com.remlists.user.domain.valueObjects.RoleName;
 import com.remlists.user.domain.valueObjects.ShortName;
 import org.junit.jupiter.api.DisplayName;
@@ -24,7 +20,6 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Optional;
-import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -33,7 +28,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 @Tag("DomainService")
 @DisplayName("Domain Service for create user tests")
 @ExtendWith(MockitoExtension.class)
-class CreateRemlistsUserDomainServiceTest {
+class CreateBasicRemlistsUserDomainServiceTest {
 
     @Mock
     private PasswordEncoderDomainService encoder;
@@ -43,12 +38,12 @@ class CreateRemlistsUserDomainServiceTest {
     private RoleRepository roleRepository;
 
     @InjectMocks
-    private CreateRemlistsUserDomainService domainService;
+    private CreateBasicRemlistsUserDomainService domainService;
 
 
     @DisplayName("VALID TESTS")
     @Nested
-    class CreateRemlistsUserDomainService_ValidTests {
+    class CreateBasicRemlistsUserDomainService_ValidTests {
 
         //TODO: descomentar esto, solo está así por las pruebas debidas al fallo de spring data y los repositorios.
 
@@ -148,7 +143,7 @@ class CreateRemlistsUserDomainServiceTest {
 
     @DisplayName("FAILED TESTS")
     @Nested
-    class CreateRemlistsUserDomainService_FailTests {
+    class CreateBasicRemlistsUserDomainService_FailTests {
 
 //        @Test
 //        @DisplayName("fail test")

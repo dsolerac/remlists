@@ -75,10 +75,7 @@ public final class User implements Serializable {
         this.verified = new EmailVerified(false);
 
         this.roles = new HashSet<>();
-        this.roles.add(BaseRoles.ROLE_USER.getRole());
-
         this.roleGroups = new HashSet<>();
-        this.roleGroups.add(BaseRoleGroups.ROLE_GROUP_USERS.getRoleGroup());
     }
 
     private User (UserBuilder userBuilder){
@@ -232,6 +229,10 @@ public final class User implements Serializable {
 
     public void addRole(Role role){
         this.roles.add(role);
+    }
+
+    public void addRoleGroup(RoleGroup roleGroup){
+        this.roleGroups.add(roleGroup);
     }
 
     public void removeRole (Role role){

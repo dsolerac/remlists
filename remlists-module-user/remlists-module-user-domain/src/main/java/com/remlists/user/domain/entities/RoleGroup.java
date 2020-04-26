@@ -10,6 +10,7 @@ import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.UUID;
 
 public final class RoleGroup implements Serializable {
 
@@ -26,7 +27,7 @@ public final class RoleGroup implements Serializable {
     private Set<Role> roles;
 
 
-    public RoleGroup() {
+    private RoleGroup() {
         roles = new HashSet<>();
     }
 
@@ -45,6 +46,54 @@ public final class RoleGroup implements Serializable {
 
     public RoleGroup(String groupName) {
         this(new RoleGroupName(groupName));
+    }
+
+    public static RoleGroup createBasicUSerRoleGroup(){
+        Role user = Role.createBasicUSerRole();
+
+        RoleGroup role_group_users = new RoleGroup(new Id(UUID.fromString("e72bb89d-f873-4c2b-83f0-03869c08da79")), new RoleGroupName("ROLE_GROUP_USERS"));
+        role_group_users.addRole(user);
+
+        return role_group_users;
+    }
+
+    public static RoleGroup createAdminUSerRoleGroup(){
+
+        Role user = Role.createBasicUSerRole();
+        Role admin = Role.createAdminUSerRole();
+
+        RoleGroup role_group_users = new RoleGroup(new Id(UUID.fromString("613d2ebf-97a1-487a-884c-77e1494afb93")), new RoleGroupName("ROLE_GROUP_ADMINS") );
+
+        role_group_users.addRole(user);
+        role_group_users.addRole(admin);
+
+        return role_group_users;
+    }
+
+    public static RoleGroup createCustomerUSerRoleGroup(){
+
+        Role user = Role.createBasicUSerRole();
+        Role customer = Role.createCustomerUSerRole();
+
+        RoleGroup role_group_users = new RoleGroup(new Id(UUID.fromString("a32518b1-ecf8-46ec-8ca2-30deb9ee00c1")), new RoleGroupName("ROLE_GROUP_CUSTOMER") );
+
+        role_group_users.addRole(user);
+        role_group_users.addRole(customer);
+
+        return role_group_users;
+    }
+
+    public static RoleGroup createEmployeeUSerRoleGroup(){
+
+        Role user = Role.createBasicUSerRole();
+        Role employee = Role.createEmployeeUSerRole();
+
+        RoleGroup role_group_users = new RoleGroup(new Id(UUID.fromString("8201ff0e-0c41-466f-a460-6d88a28e11b1")), new RoleGroupName("ROLE_GROUP_EMPLOYEE") );
+
+        role_group_users.addRole(user );
+        role_group_users.addRole(employee );
+
+        return role_group_users;
     }
 
 
@@ -80,6 +129,9 @@ public final class RoleGroup implements Serializable {
         this.roles = roles;
     }
 
+    public void addRole(Role role){
+        this.roles.add(role);
+    }
 
     @Override
     public boolean equals(Object o) {

@@ -204,7 +204,7 @@ class UserTest {
 
             //When
             User user = new User.UserBuilder(id, name, email, password).build();
-            user.removeRole(BaseRoles.ROLE_USER.getRole());
+            user.removeRole(Role.createBasicUSerRole());
 
             //Then
             Set<ConstraintViolation<User>> violations = validator.validate(user);

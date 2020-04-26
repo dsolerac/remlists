@@ -2,7 +2,7 @@ package com.remlists.user.write.infrastructure.spring.config;
 
 import com.remlists.user.domain.repository.RoleRepository;
 import com.remlists.user.domain.repository.UserRepository;
-import com.remlists.user.domain.services.CreateRemlistsUserDomainService;
+import com.remlists.user.domain.services.CreateBasicRemlistsUserDomainService;
 import com.remlists.user.write.infrastructure.spring.security.RemlistUserPasswordEncoder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -38,8 +38,8 @@ public class RemlistsUsersDomainServicesConfig {
     class Users {
 
         @Bean(createUserDomainService)
-        public CreateRemlistsUserDomainService createRemlistUserDomainService() {
-            CreateRemlistsUserDomainService domainService = new CreateRemlistsUserDomainService(userRepository,
+        public CreateBasicRemlistsUserDomainService createRemlistUserDomainService() {
+            CreateBasicRemlistsUserDomainService domainService = new CreateBasicRemlistsUserDomainService(userRepository,
                                                                                                 roleRepository,
                                                                                                 remlistUserPasswordEncoder
                                                                                                 );

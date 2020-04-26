@@ -2,12 +2,10 @@ package com.remlists.user.write.application;
 
 import com.remlists.shared.domain.events.MessagePublisher;
 import com.remlists.shared.domain.valueObjects.Id;
-import com.remlists.user.domain.events.NewUserWasCreated;
 import com.remlists.user.domain.valueObjects.Password;
-import com.remlists.user.write.application.commands.RegistryUserCommand;
 import com.remlists.user.write.application.services.impl.RegistryNewUserAccountServiceImpl;
 import com.remlists.user.domain.entities.User;
-import com.remlists.user.domain.services.CreateRemlistsUserDomainService;
+import com.remlists.user.domain.services.CreateBasicRemlistsUserDomainService;
 import com.remlists.user.domain.valueObjects.EmailAddress;
 import com.remlists.user.domain.valueObjects.ShortName;
 import org.junit.jupiter.api.DisplayName;
@@ -20,7 +18,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.mockito.stubbing.OngoingStubbing;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.UUID;
@@ -34,7 +31,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class RegistryNewUserAccountServiceTest {
 
     @Mock
-    private CreateRemlistsUserDomainService domainService;
+    private CreateBasicRemlistsUserDomainService domainService;
 
     @Mock
     private MessagePublisher publisher;

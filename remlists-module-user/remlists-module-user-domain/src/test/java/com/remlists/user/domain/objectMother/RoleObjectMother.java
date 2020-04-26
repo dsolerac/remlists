@@ -2,8 +2,6 @@ package com.remlists.user.domain.objectMother;
 
 import com.remlists.shared.domain.valueObjects.Id;
 import com.remlists.user.domain.entities.Role;
-import com.remlists.user.domain.entities.User;
-import com.remlists.user.domain.valueObjects.BaseRoles;
 import com.remlists.user.domain.valueObjects.RoleDescription;
 import com.remlists.user.domain.valueObjects.RoleName;
 
@@ -18,7 +16,7 @@ public class RoleObjectMother {
     }
 
     public static Role createBasicUserRole(){
-        return BaseRoles.ROLE_USER.getRole();
+        return Role.createBasicUSerRole();
     }
 
     public static Role createTestingRole(){
